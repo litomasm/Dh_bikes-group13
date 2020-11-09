@@ -8,12 +8,6 @@ const controller = {
        res.render("login")
     },
 
-    search: (req, res) => {
-        // obtener la info del formulario.
-        // filtrar en la base de datos
-        // almacenar en una variable
-        // renderizar la vista
-    },
    
 };
 

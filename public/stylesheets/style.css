@@ -66,10 +66,6 @@ body{
   color: #34495E;
 }
 
-.bars{
-  display: none;
-}
-
 #logo{
   width: 25%;
 }
@@ -96,16 +92,12 @@ ul li{
   background-color: #34495E ;
   padding: 20px;
   height: 100px;
-  left: 10px;
   box-sizing: border-box;
-  margin-left:50px;
+  margin-right: 20px;
   
   
 }
-.search{
-  display: none;
-  width:25%;
-}
+
 #busqueda{
   color:#34495E;
   width: 85%;
@@ -113,6 +105,7 @@ ul li{
   margin-left: 20px;
   margin-bottom: 10px;
   box-sizing: border-box;
+  
   
 }
 
@@ -134,13 +127,12 @@ a{
   width:15px;
   background-color:#34495E;
   border-radius: 10px 10px 10px 10px;
-  text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
   box-sizing: border-box;
+  text-align: center;
+  margin-right: 15px;
 }
-
-
 
 .segundodiv{
   display: flex;
@@ -207,6 +199,23 @@ hr{
   display: flex;
   flex-wrap: wrap;
 }
+
+.menuMedia{
+  display: none;
+}
+
+.bars{
+  display: none;
+}
+
+.search{
+  display: none;
+}
+
+#search{
+  display: none;
+}
+
 /* CARRITO */
 
 .descuento{
@@ -519,9 +528,8 @@ h4{
   background-color: #34495E;
   border-radius: 10px 10px 10px 10px;
   color: #B7950B;
-  text-align: center;
   padding: 10px;
-  
+  padding-left: 75px;
 }
 
 .menu{
@@ -562,7 +570,22 @@ width:100%;
 text-align: center;
 }
 
+.fa-bars{
+  text-align: center;
+}
 
+.search{
+  display: block;
+  border-radius: 10px 10px 10px 10px;
+}
+
+#search{
+  display: inline-block;
+}
+
+.menuMedia{
+  display: inline-block;
+}
 }
 
 @media(min-width: 400px){
@@ -591,5 +614,22 @@ text-align: center;
   .marcas{
       justify-content: center;
       width: 100%;
+  }
+
+  .fa-bars{
+    text-align: center;
+  }
+
+  .search{
+    display: block;
+    border-radius: 10px 10px 10px 10px;
+  }
+
+  .menuMedia{
+    display: inline-block;
+  }
+
+  #search{
+    display: inline-block;
   }
 }
