@@ -1,0 +1,35 @@
+[
+    {
+     "id": 1,
+     "name": "Bicicleta Randers paseo BKE-300",
+     "price": 45.000,
+     "category": "adultos",
+     "description": "peso: 15kg, origen: Argentina, material: acero, rodado: 26, suspensión: sin suspensión",
+     "image": "bici1.jpg"
+    },
+    {
+     "id": 2,
+     "name": "Bicicleta Musseta Fantasy R24",
+     "price": 28.000,
+     "category": "niños",
+     "description": "peso: 14kg, origen: Argentina, material: acero, rodado: 24, suspensión: sin suspensión",
+     "image": "bici2.jpg"
+    },
+    {
+     "id": 3,
+     "name": "Bicicleta Firebird rodado 29",
+     "price": 54.000,
+     "category": "adultos",
+     "description": "peso: 15.5kg, origen: China, material: acero, rodado: 29, suspensión: sin suspensión",
+     "image": "bici3.jpg"
+    },
+    {
+     "id": 4,
+     "name": "Bicicleta Randers infantil BMX BKE-100",
+     "price": 39.000,
+     "category": "niños",
+     "description": "peso: 11kg, origen: Argentina, material: acero, rodado: 20, suspensión: sin suspensión",
+     "image": "bici4.jpg"
+    }
+   ]
+   
