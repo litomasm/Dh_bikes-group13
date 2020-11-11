@@ -1,0 +1,51 @@
+<%-include("./partials/head")%>
+<body>
+
+    <div>
+        <div>
+            <div>
+                <h2>Formulario de creación de productos</h2>
+            </div>
+        </div>
+        <div>
+            <form action="/producto/create" method="POST" enctype="multipart/form-data">
+                <div>
+                    <div>
+                        <label for="name" class="form-label">Nombre del producto:</label>
+                        <input type="text" id="name" name="name" placeholder="Ej: Bicicleta Vairo" class="form-input">
+                    </div>
+                    <div>
+                        <label for="price" class="form-label">Precio del producto:</label>
+                        <input type="text" id="price" name="price" placeholder="Ej: 64.000" class="form-input">
+                    </div>
+                        <div>
+                        <label for="category" class="form-label">Categoría:</label>
+                        <select name="category" id="category" class="form-input">
+                            <option value="">Elegí</option>
+                            <option value="in-sale">Niños</option>
+                            <option value="visited">Adultos</option>
+                            <option value="in-sale">Deportes</option>
+                            <option value="visited">Accesorios</option>
+                            <option value="visited">Seguros</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="image" class="form-label">Foto del producto:</label>
+                        <input type="file" name="image" id="image">
+                    </div>
+                    <div>
+                        <label for="description" class="form-label">Descipción:</label>
+                        <textarea name="description" id="description" class="form-input"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="buy-now-button">Guardar producto</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+ 
+    <%-include("./partials/footer")%>
+   
+</body>

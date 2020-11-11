@@ -37,7 +37,7 @@ const controller = {
 
     // Create - Form to create
     create: (req, res) => {
-        res.render('producto.ejs');
+        res.render('productoCreate.ejs');
     },
 
 
