@@ -1,5 +1,5 @@
 *{
-  margin:0;
+  margin:0 auto;
   padding: 0;
   box-sizing: border-box;
 }
@@ -67,7 +67,13 @@ body{
 }
 
 #logo{
+  width: 100%;
+  height: 100%;
+}
+
+.logo{
   width: 25%;
+ height: 100%;
 }
 
 #categorias{
@@ -93,8 +99,7 @@ ul li{
   padding: 20px;
   height: 100px;
   box-sizing: border-box;
-  margin-right: 20px;
-  
+    
   
 }
 
@@ -124,24 +129,23 @@ a{
 }
 
 #carrito{
-  width:15px;
+  
   background-color:#34495E;
-  border-radius: 10px 10px 10px 10px;
   padding-top: 10px;
   padding-bottom: 10px;
-  box-sizing: border-box;
   text-align: center;
-  margin-right: 15px;
+  
 }
 
 .segundodiv{
+  background-image:url("/images/banner.jpg");
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
   background-size: cover;
-  margin: 0px;
-  box-sizing: border-box;
+  margin: 0px; 
+  align-items: center; 
+  padding: 0;
   
 }
 
@@ -465,7 +469,7 @@ h4{
   .primerdiv{
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: space-between;
       width: 100vw;
   }
 
@@ -529,7 +533,7 @@ h4{
   border-radius: 10px 10px 10px 10px;
   color: #B7950B;
   padding: 10px;
-  padding-left: 75px;
+  
 }
 
 .menu{
@@ -542,11 +546,9 @@ h4{
   border: 2px solid #34495E;
   background-color: #34495E ;
   border-radius: 10px 10px 10px 10px;
-  position: relative;
+  
   width:15%;
 }
-
-
 
 
 #categorias{
@@ -629,7 +631,8 @@ text-align: center;
     display: inline-block;
   }
 
-  #search{
-    display: inline-block;
+  #logo{
+    height: 100%;
+    
   }
 }
