@@ -1,5 +1,5 @@
 *{
-  margin:0;
+  margin:0 auto;
   padding: 0;
   box-sizing: border-box;
 }
@@ -135,14 +135,13 @@ a{
 }
 
 .segundodiv{
+  background-image:url(../images/banner.jpg);
+  background-size: cover;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  background-size: cover;
-  margin: 0px;
-  box-sizing: border-box;
-  
+  background-repeat: no-repeat;
 }
 
 h2{
@@ -629,7 +628,4 @@ text-align: center;
     display: inline-block;
   }
 
-  #search{
-    display: inline-block;
   }
-}
