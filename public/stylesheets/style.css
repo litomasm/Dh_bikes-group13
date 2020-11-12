@@ -455,6 +455,68 @@ h4{
   text-align: center;
 }
 
+/* CREAR PRODUCTO */
+
+.registroProduct{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.formRegistroProducto{
+  width: 100%;
+  box-sizing: border-box;
+  
+}
+
+.formRegistroProducto2{
+  border: 1px solid #34495E;
+  padding: 15px;
+  margin-top: 50px;
+  margin-bottom: 50px;;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+  
+
+.nombreDelProducto{
+  width: 100%;
+  
+}
+
+.precioDelProducto{
+  width: 100%;
+  
+}
+
+.categoria{
+  width: 100%;
+  
+}
+
+.fotoProducto{
+  width: 100%;
+  
+}
+
+.productDescripcion{
+  width: 100%;
+  
+}
+
+.botonguardarproducto{
+ width: 50%;
+ background-color: #34495E;
+ border-radius: 10px 10px 10px 10px;
+ padding: 10px;
+ size: 30px;
+ color: #B7950B;
+ margin: auto;
+ display: block;
+}
+
 /* RESPONSIVE */
 
 @media(max-width: 850px){

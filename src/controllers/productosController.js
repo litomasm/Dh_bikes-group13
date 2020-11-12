@@ -72,7 +72,7 @@ const controller = {
 */
     // Update - Form to edit
     edit: (req, res) => {
-        res.render('producto.ejs');
+        res.render('productoEdit.ejs');
     },
 /*
     // Update - Method to update

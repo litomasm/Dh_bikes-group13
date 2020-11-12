@@ -5,7 +5,70 @@
 
 <body>
     <%-include("./partials/header")%>
+<br>
+<br>
+    <main class="registroProduct">
 
+    <div>
+        <div>
+            <div>
+                <h2>Formulario de edición de productos</h2>
+            </div>
+        </div>
+        <div class="formRegistroProducto">
+            <form class="formRegistroProducto2" action="/producto/create" method="POST" enctype="multipart/form-data">
+                <div>
+                    <div>
+                        <label class="nombreDelProducto" for="name" class="form-label">Nombre del producto:</label><br>
+                        <input class="nombreDelProducto" type="text" id="name" name="name" placeholder="Ej: Bicicleta Vairo" class="form-input">
+                    </div>
+                    <br>
+                    <br>
+                    <div>
+                        <label class="precioDelProducto" for="price" class="form-label">Precio del producto:</label><br>
+                        <input class="precioDelProducto" type="text" id="price" name="price" placeholder="Ej: $64.000" class="form-input">
+                    </div>
+                    <br>
+                    <br>
+                        <div>
+                        <label class= "categoria" for="category" class="form-label">Categoría:</label>
+                        <select name="category" id="category" class="form-input">
+                            <option value="">Elegí</option>
+                            <option value="Niños">Niños</option>
+                            <option value="Adultos">Adultos</option>
+                            <option value="Deportes">Deportes</option>
+                            <option value="Accesorios">Accesorios</option>
+                            <option value="Seguros">Seguros</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="fotoProducto">
+                        <label for="image" class="form-label">Foto del producto:</label> <br>
+                        <input type="file" name="image" id="image">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="productDescripcion">
+                        <label for="description" class="form-label">Descipción:</label><br>
+                        <textarea name="description" id="description" class="form-input" cols="50" rows="10"></textarea>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="productDescripcion">
+                        <label for="description" class="form-label">Información adicional:</label><br>
+                        <textarea name="description" id="description" class="form-input" cols="50" rows="10"></textarea>
+                    </div>
+                    <br>
+                    <div>
+                        <button class="botonguardarproducto" type="submit" class="buy-now-button">Actualizar producto</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</main>
 
 
     <%-include("./partials/footer")%>
