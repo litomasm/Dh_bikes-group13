@@ -15,3 +15,15 @@ Sitios similares: Elegimos estos sitios por la similitud de los productos que ve
 https://motomelbicicletas.com.ar/ https://www.nitrobikes.com.ar/ https://www.hollywoodbikes.com.ar/ https://www.probikes.com.ar/ https://bicicleteriahobbymania.com.ar/ https://www.sin-limite.com.ar/
 
 Enlace a tablero de Trello: https://trello.com/b/ikqlCmfZ
+
+
+WEEKLY- SPRINT 3 
+
+El Grupo 13 se juntó en la semana posterior a la entrega del trabajo en equipo a través de videollamada, para repartir tareas y tomar en cuenta las observaciones que tuvimos en el sprint pasado. 
+
+Fuimos viendo los errores o faltantes que tuvimos, entre ellos justamente la ausencia de un daily/weekly, era un punto opcional, pero en esta ocasión decidimos que lo opcional también sería tomado en cuenta. 
+
+Cada compañero aportó lo que consideraba apropiado modificar o agregar, y nos interesamos en colaborar en los puntos a tratar. Las tareas fueron repartidas y cargadas a Trello, por lo que al terminarlas estaremos marcando la evolución.
+
+Tuvimos varios inconvenientes que tratamos después de la clase sincrónica con los profesores, llegando así a solucionarlos. 
+Esperamos mejorar nuestra página y con esto adquirir más conocimientos en el camino. 
