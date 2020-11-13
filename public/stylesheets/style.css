@@ -175,8 +175,7 @@ article{
 
 /*Footer*/
 footer{
-  display:flex;
-  flex-wrap:wrap;
+
   width:100%;
   text-align: center;
   color:#B7950B;
@@ -399,16 +398,15 @@ h3{
 
 #otrosProductos {
   display:flex;
-  flex-flow:row wrap;
+  flex-wrap: wrap;
+  justify-content: space-between;
   
 }
 
-.productRelacionado img{
-  width:300px;
-  height:200px;
- 
-  margin-right:10px;
 
+.productRelacionado{
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 /* REGISTRO */
@@ -696,6 +694,11 @@ h4{
       width: 100%;
   }
 
+  #otrosProductos{
+    justify-content: center;
+    width: 100%;
+}
+
   .fa-bars{
     text-align: center;
   }
@@ -712,5 +715,20 @@ h4{
   #logo{
     height: 100%;
     
+  }
+
+  .descripcionParrafo{
+    width:100%;
+    text-align: justify;
+
+    
+  }
+
+  #infoDescrip-Adicional{
+    width: 100%;
+  }
+
+  #infoAdicional{
+    padding-right: 10px;
   }
 }
