@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%-include("./partials/head")%>
+    <%-include("./partials/head")%>
 
-<body>
-    <%-include("./partials/header")%>
-    <br>
-    <br>
-<main class="mainlogin">
-    
-    <h2>Si tenés una cuenta con nosotros, por favor accedé con tus datos</h2>
-    <div class="formingreso">
-    <form class="formlogin" action="#" method="post">
-        <article id="primeritem">
-        <label for="correo">Correo Electrónico *</label> <br>
-        <input type="email" id="email" name="email"><br><br>
-        <label for="correo">Contraseña *</label> <br>
-        <input type="password" id="password" name="password"><br>
-        </article>
-        <article id="campos">
-        <p>*Campos Requeridos</p>
-        </article>
-        <article id="olvidar"><a href="#"><p>¿Olvidaste tu contraseña?</p></a>
-        </article> <br>
-        <a href="#"><button id="botoniniciar"type="submit">Iniciar Sesión</button></a>
+    <body>
+        <%-include("./partials/header")%>
+        <br>
+        <br>
+        <main class="mainlogin">
         
-    </form>
-    </div>
-  
-</main>
+            <h2>Si tenés una cuenta con nosotros, por favor accedé con tus datos</h2>
+            <div class="formingreso">
+                <form class="formlogin" action="#" method="post">
+                    <article id="primeritem">
+                        <label for="correo">Correo Electrónico *</label> <br>
+                        <input type="email" id="email" name="email"><br><br>
+                        <label for="correo">Contraseña *</label> <br>
+                        <input type="password" id="password" name="password"><br>
+                    </article>
+                    <article id="campos">
+                        <p>*Campos Requeridos</p>
+                    </article>
+                    <article id="olvidar"><a href="#"><p>¿Olvidaste tu contraseña?</p></a>
+                    </article> <br>
+                    <a href="#"><button id="botoniniciar"type="submit">Iniciar Sesión</button></a>
+                    
+                </form>
+            </div>
+        </main>
 
-<%-include("./partials/footer")%>
+        <%-include("./partials/footer")%>
 
-</body>
+    </body>
 </html>
