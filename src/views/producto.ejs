@@ -9,18 +9,18 @@
     <br>
     <section id="producto">
         <article class="foto">
-            <img  src="/images/bici1.jpg" alt="Futura Futy" width="85%" height="100%" title="Futura Futy">
+            <img  src="/images/products/<%= product.image %>" alt="Futura Futy" width="85%" height="100%" title="Futura Futy">
         </article>
         <article id="productoInfo">
-            <h2 id="nombreProducto">Bicicleta Camicleta Futura Futy</h2>
-            <p class="precio">$ 8.490</p>
+            <h2 id="nombreProducto"><%= product.name%></h2>
+            <p class="precio">$ <%= product.price %></p>
             <br>
             <br>
             <p id="cantidadDisponible">3 disponibles</p>
             <a href="carrito"><button  id="botonAnadir" type="button">Añadir al carrito</button></a>
             <br>
             <br>
-            <p id="cuotasDisponibles">12 cuotas de $ </p>
+            <p id="cuotasDisponibles">12 cuotas de $ <%= product.price / 12 %> </p>
         </article> 
         
         <div id="infoDescrip-Adicional">
@@ -54,6 +54,10 @@
                 </p>
                 <br>
                 <br>
+                <a href="/producto/edit/<%= product.id %>" class="action-button edit">EDITAR PRODUCTO</a>
+						<form action="/producto/delete/<%= product.id %>" method="POST" style="display: inline-flex">
+							<button type="submit" class="action-button delete">ELIMINAR</button>
+						</form>
             </div>
         
         </div>

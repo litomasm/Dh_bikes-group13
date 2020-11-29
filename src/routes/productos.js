@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-/*
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, __dirname + '/../../public/images/products/')
@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
     }
 })
 
-const upload = multer({ storage: storage })*/
+const upload = multer({ storage: storage })
 
 // ************ Controller Require ************
 const productosController = require('../controllers/productosController');
@@ -22,19 +22,19 @@ router.get('/', productosController.index);
 
 /*** CREATE ONE PRODUCT */
 router.get('/create', productosController.create);
-/*router.post('/create', upload.any(), productosController.store);
+router.post('/create', upload.any(), productosController.store);
 
 
 
-/** GET ONE PRODUCT 
+/** GET ONE PRODUCT */
 router.get('/detail/:id/', productosController.detail); // http://localhost:3000/products/detail/6
 
 /*** EDIT ONE PRODUCT */
-router.get('/:id/edit', productosController.edit);
-/*router.put('/:id', productosController.update);
+router.get('/edit/:id', productosController.edit);
+router.put('/edit/:id', upload.any(), productosController.update);
 
-/*** DELETE ONE PRODUCT
+/*** DELETE ONE PRODUCT */
 router.delete('/:id', productosController.destroy);
-**/
+
 
 module.exports = router;

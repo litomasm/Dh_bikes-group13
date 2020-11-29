@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%-include("./partials/head")%>
+<%- include('partials/head', {title: 'Editando: ' + productToEdit.name}) %>
 
 <body>
     <%-include("./partials/header")%>
@@ -12,21 +12,21 @@
     <div>
         <div>
             <div>
-                <h2>Formulario de edición de productos</h2>
+                <h2>Formulario de edición de <i> <%= productToEdit.name %> </i></h2>
             </div>
         </div>
         <div class="formRegistroProducto">
-            <form class="formRegistroProducto2" action="/producto/create" method="POST" enctype="multipart/form-data">
+            <form class="formRegistroProducto2" action="/producto/edit/<%= productToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div>
                     <div>
                         <label class="nombreDelProducto" for="name" class="form-label">Nombre del producto:</label><br>
-                        <input class="nombreDelProducto" type="text" id="name" name="name" placeholder="Ej: Bicicleta Vairo" class="form-input">
+                        <input class="nombreDelProducto" type="text" id="name" name="name" placeholder="Ej: Bicicleta Vairo" value="<%= productToEdit.name %>">
                     </div>
                     <br>
                     <br>
                     <div>
                         <label class="precioDelProducto" for="price" class="form-label">Precio del producto:</label><br>
-                        <input class="precioDelProducto" type="text" id="price" name="price" placeholder="Ej: $64.000" class="form-input">
+                        <input class="precioDelProducto" type="text" id="price" name="price" placeholder="Ej: $64.000" value="<%= productToEdit.price %>">
                     </div>
                     <br>
                     <br>
@@ -51,13 +51,13 @@
                     <br>
                     <div class="productDescripcion">
                         <label for="description" class="form-label">Descipción:</label><br>
-                        <textarea name="description" id="description" class="form-input" cols="50" rows="10"></textarea>
+                        <textarea name="description" id="description" class="form-input" cols="50" rows="10"><%= productToEdit.description %></textarea>
                     </div>
                     <br>
                     <br>
                     <div class="productDescripcion">
                         <label for="description" class="form-label">Información adicional:</label><br>
-                        <textarea name="description" id="description" class="form-input" cols="50" rows="10"></textarea>
+                        <textarea name="description" id="description" placeholder="<%= productToEdit.info %>" cols="50" rows="10"><%= productToEdit.info %></textarea>
                     </div>
                     <br>
                     <div>
