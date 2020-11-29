@@ -1,35 +1,45 @@
 [
-    {
-     "id": 1,
-     "name": "Bicicleta Randers paseo BKE-300",
-     "price": 45.000,
-     "category": "adultos",
-     "description": "peso: 15kg, origen: Argentina, material: acero, rodado: 26, suspensión: sin suspensión",
-     "image": "bici1.jpg"
-    },
-    {
-     "id": 2,
-     "name": "Bicicleta Musseta Fantasy R24",
-     "price": 28.000,
-     "category": "niños",
-     "description": "peso: 14kg, origen: Argentina, material: acero, rodado: 24, suspensión: sin suspensión",
-     "image": "bici2.jpg"
-    },
-    {
-     "id": 3,
-     "name": "Bicicleta Firebird rodado 29",
-     "price": 54.000,
-     "category": "adultos",
-     "description": "peso: 15.5kg, origen: China, material: acero, rodado: 29, suspensión: sin suspensión",
-     "image": "bici3.jpg"
-    },
-    {
-     "id": 4,
-     "name": "Bicicleta Randers infantil BMX BKE-100",
-     "price": 39.000,
-     "category": "niños",
-     "description": "peso: 11kg, origen: Argentina, material: acero, rodado: 20, suspensión: sin suspensión",
-     "image": "bici4.jpg"
-    }
-   ]
-   
+ {
+  "id": 1,
+  "name": "Bicicleta Randers paseo BKE-300",
+  "price": 45000,
+  "category": "adultos",
+  "description": "peso: 15kg, origen: Argentina, material: acero, rodado: 26, suspensión: sin suspensión",
+  "image": "bici1.jpg"
+ },
+ {
+  "id": 2,
+  "name": "Bicicleta Musseta Fantasy R24",
+  "price": 28000,
+  "category": "niños",
+  "description": "peso: 14kg, origen: Argentina, material: acero, rodado: 24, suspensión: sin suspensión",
+  "image": "bici2.jpg"
+ },
+ {
+  "id": 3,
+  "name": "Bicicleta Firebird rodado 29",
+  "price": 54000,
+  "category": "adultos",
+  "description": "peso: 15.5kg, origen: China, material: acero, rodado: 29, suspensión: sin suspensión",
+  "image": "bici3.jpg"
+ },
+ {
+  "id": 4,
+  "name": "Bicicleta Randers infantil BMX BKE-100",
+  "price": 39000,
+  "category": "niños",
+  "description": "peso: 11kg, origen: Argentina, material: acero, rodado: 20, suspensión: sin suspensión",
+  "image": "bici4.jpg"
+ },
+ {
+  "id": 5,
+  "name": "Bicicleta Mountain Bike Shimano",
+  "price": "74999",
+  "category": "",
+  "description": [
+   "-Bicicleta Mountain Bike 26\r\n-Original de Forest\r\n-Llantas doble pared\r\n-Cubiertas Importadas\r\n-Cuadro de Aluminio Importado\r\n-Pintura Bajo barniz\r\n-Caja pedalera reforzada",
+   "\r\n-Cubre cadena\r\n-Horquilla con suspension delantera\r\n-Asiento ergonometrico\r\n-21 velocidades Cambios: Genericos , COMPATIBLES con shimano\r\n-Manija de Cambio Integrada\r\n-Frenos A Disco Mecánico\r\n-Puños goma"
+  ],
+  "image": "1606673312660-bici5.jpg"
+ }
+]

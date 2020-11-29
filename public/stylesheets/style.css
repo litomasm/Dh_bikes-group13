@@ -409,6 +409,71 @@ h3{
   margin-right: 20px;
 }
 
+
+.products-wrapper {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+.product-box {
+  background-color: #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 300ms;
+  margin: 20px 0;
+}
+
+.product-box a {
+  display: block;
+}
+
+.product-box_image {
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.product-box_data {
+  padding: 15px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.product-box_data h2 {
+  font-size: 2.4em;
+  font-weight: 300;
+  margin: 0;
+}
+
+
+
+.product-box_data p {
+  font-size: 1.5em;
+  width: 100%;
+  color: var(--gray);
+  margin: 0;
+  height: 0;
+  transition: 300ms;
+  overflow: hidden;
+}
+
+
+
+.product-box:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.product-box:hover p {
+  height: 40px;
+  margin-top: 15px;
+}
+
+.product-box:hover i {
+  transform: rotate(360deg);
+  box-shadow: 0 0 5px var(--green);
+}
+
 /* REGISTRO */
 
 .mainregistro{
