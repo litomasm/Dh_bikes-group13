@@ -1,0 +1,46 @@
+[   
+    {
+    "id":1,
+    "first_name":"Casey",
+    "last_name":"Simyson",
+    "email":"csimyson0@thetimes.co.uk",
+    "password":"lx1rRJhT",
+    "category":"user",
+    "image":"user_1.jpg"
+},
+    {
+    "id":2,
+    "first_name":"Roana",
+    "last_name":"Pawfoot",
+    "email":"rpawfoot1@hp.com",
+    "password":"ctjfu7EtE",
+    "category":"user",
+    "image":"user_2.jpg"
+},
+    {
+    "id":3,
+    "first_name":"Wilt",
+    "last_name":"Ducker",
+    "email":"wducker2@walmart.com",
+    "password":"DoeZKzNw2",
+    "category":"user",
+    "image":"user_3.jpg"
+},
+    {
+    "id":4,
+    "first_name":"Dorian",
+    "last_name":"Winterton",
+    "email":"dwinterton3@simplemachines.org",
+    "password":"Uc1x6uDg2",
+    "category":"user",
+    "image":"user_4.jpg"
+},
+    {
+    "id":5,
+    "first_name":"Dorian",
+    "last_name":"Winterton",
+    "email":"dwinterton3@simplemachines.org",
+    "password":"Uc1x6uDg2",
+    "category":"user",
+    "image":"user_5.jpg"
+}]
