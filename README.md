@@ -27,3 +27,11 @@ Cada compañero aportó lo que consideraba apropiado modificar o agregar, y nos 
 
 Tuvimos varios inconvenientes que tratamos después de la clase sincrónica con los profesores, llegando así a solucionarlos. 
 Esperamos mejorar nuestra página y con esto adquirir más conocimientos en el camino. 
+
+WEEKLY-SPRINT 4
+
+Siempre nos organizamos para tener una videollamada los fines de semana que es cuando tenemos la facilidad de disponer de tiempo. Afortunadamente no tuvimos correcciones en el último sprint, así que no tuvimos temas para modificar. 
+
+Revisamos los temas para el nuevo sprint y nos lo repartimos equitativamente. Tratamos siempre de que cada uno se sienta cómodo con las tareas a realizar. Como siempre tenemos la disponibilidad del whatsapp para consultarnos y darnos apoyo cuando se nos presenta un error o alguna duda. 
+
+Cada uno se desempeña siempre dentro del tiempo específico con el que se cuenta para cada sprint, y esperamos seguir así, para que el trabajo fluya sin inconvenientes.
