@@ -109,8 +109,23 @@ const controller = {
 
 	// Delete - Delete one product from DB
 	destroy: (req, res) => {
-		product.destroy(req.params.id);
-		return res.redirect('/');
+		// product.destroy(req.params.id);
+        // return res.redirect('/');
+        
+        const idProduct = req.params.id;
+        const products = getAllProducts();
+
+        const listProductUpdate = products.filter((product) =>{
+            if(product.id!=idProduct){
+                return product;
+            }
+        })
+
+        writeProducts(listProductUpdate);
+
+        res.redirect('/')
+
+
 	}
 };
 

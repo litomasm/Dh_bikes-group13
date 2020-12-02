@@ -34,7 +34,7 @@ router.get('/edit/:id', productosController.edit);
 router.put('/edit/:id', upload.any(), productosController.update);
 
 /*** DELETE ONE PRODUCT */
-router.delete('/:id', productosController.destroy);
+router.delete('/delete/:id', productosController.destroy);
 
 
 module.exports = router;
