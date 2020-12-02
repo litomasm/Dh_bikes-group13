@@ -7,3 +7,5 @@ Deltas
 
 Ya con el sitio maquetado, aplicamos una estructura dinámica, implementamos un patrón de diseño MVC, le incorporamos javascript desde el back-end para manejar los distintos sistemas de ruteo y toda la lógica que conlleva. También se organizo toda la arquitectura de archivo de modo que la secuencia de ejecución sea lo mas fácil de entender. Se instalo y configuro varias librerías en el entry point para manejos de archivos, incorporar los métodos PUT y DELETE, como establecer por defecto la ruta de los archivos estáticos.
 
+Ahora nuestro sitio se encuetra preparado para responder a cualquier solicitud por parte del cliente, queriendo agregar, modificar o eliminar productos de la base de datos(JSON) aplicando los diferentes metodos http. Ademas se incorporo una base de dato(JSON) para empezar a familiarizanos con ella. Se le aplico correcciones a algunas vistas, se utilizo express-generator lo que nos facilito al momento de trabajar. Aun queda por agregar funcionalidad a la pagina para que sea segura y funcione perfectamente.
+

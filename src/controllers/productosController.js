@@ -109,8 +109,7 @@ const controller = {
 
 	// Delete - Delete one product from DB
 	destroy: (req, res) => {
-		// product.destroy(req.params.id);
-        // return res.redirect('/');
+		
         
         const idProduct = req.params.id;
         const products = getAllProducts();
@@ -123,7 +122,7 @@ const controller = {
 
         writeProducts(listProductUpdate);
 
-        res.redirect('/')
+        res.redirect('/producto')
 
 
 	}
