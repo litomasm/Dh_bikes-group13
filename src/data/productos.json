@@ -10,9 +10,12 @@
  {
   "id": 2,
   "name": "Bicicleta Musseta Fantasy R24",
-  "price": 28000,
-  "category": "niños",
-  "description": "peso: 14kg, origen: Argentina, material: acero, rodado: 24, suspensión: sin suspensión",
+  "price": "39000",
+  "category": "",
+  "description": [
+   "peso: 14kg, origen: Argentina, material: acero, rodado: 24, suspensión: sin suspensión,,",
+   ""
+  ],
   "image": "bici2.jpg"
  },
  {
@@ -34,11 +37,10 @@
  {
   "id": 5,
   "name": "Bicicleta Mountain Bike Shimano",
-  "price": "74999",
-  "category": "",
+  "price": "75000",
+  "category": "Adultos",
   "description": [
-   "-Bicicleta Mountain Bike 26\r\n-Original de Forest\r\n-Llantas doble pared\r\n-Cubiertas Importadas\r\n-Cuadro de Aluminio Importado\r\n-Pintura Bajo barniz\r\n-Caja pedalera reforzada",
-   "\r\n-Cubre cadena\r\n-Horquilla con suspension delantera\r\n-Asiento ergonometrico\r\n-21 velocidades Cambios: Genericos , COMPATIBLES con shimano\r\n-Manija de Cambio Integrada\r\n-Frenos A Disco Mecánico\r\n-Puños goma"
+   "-Bicicleta Mountain Bike 26\r\n-Original de Forest\r\n-Llantas doble pared\r\n-Cubiertas "
   ],
   "image": "1606673312660-bici5.jpg"
  }

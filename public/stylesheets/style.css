@@ -30,7 +30,7 @@ body{
 }
 
 .iconosHeader{
-  margin-right: 60%;  
+  margin-right: 57%;  
       
 }
 
@@ -392,6 +392,7 @@ h3{
 #infoAdicional{
   width:500px;
   margin-left:10px;
+  text-align: justify;
 }
 .delete{
   

@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override'); 
+const session = require ("express-session");
 
 
 const app = express();
@@ -18,18 +19,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(methodOverride('_method')); 
+app.use(session({
+  secret: "secreto",
+  resave: false,
+  saveUninitialized: true,
+}));
 
 const indexRouter = require('./routes/index');
 const productoRouter = require('./routes/productos');
-const loginRouter = require('./routes/login');
-const registroRouter = require('./routes/registro');
+const userRouter = require('./routes/user');
 const carritoRouter = require('./routes/carrito');
 
 
 app.use('/', indexRouter);
 app.use('/producto', productoRouter);
-app.use('/login', loginRouter);
-app.use('/registro', registroRouter);
+app.use('/user', userRouter);
 app.use('/carrito', carritoRouter);
 
 // catch 404 and forward to error handler
