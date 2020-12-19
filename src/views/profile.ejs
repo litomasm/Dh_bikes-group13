@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%-include("./partials/head")%>
+
+    <body>
+        <%-include("./partials/header")%>
+        <br>
+        <br>
+        <main class="mainregistro">
+            <h2>Mi Perfil</h2>
+            <div class= "fotoProfile">
+                <article class="foto">
+                    <img  src="#" alt="fotoDelUsuario" width="85%" height="100%" title="fotoDelUsuario">
+                </article>
+            </div>
+
+            <div class="nombreymail">
+                <h2> ¡Hola <%= nombre %> <%= apellido %>! </h2> <br>
+                
+                <h2> <%= email %></h2> <br>
+            </div>
+                     
+                    
+            
+           
+            
+        </main>
+<br>
+        <%-include("./partials/footer")%>
+
+    </body>
+</html>
