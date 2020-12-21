@@ -35,3 +35,11 @@ Siempre nos organizamos para tener una videollamada los fines de semana que es c
 Revisamos los temas para el nuevo sprint y nos lo repartimos equitativamente. Tratamos siempre de que cada uno se sienta cómodo con las tareas a realizar. Como siempre tenemos la disponibilidad del whatsapp para consultarnos y darnos apoyo cuando se nos presenta un error o alguna duda. 
 
 Cada uno se desempeña siempre dentro del tiempo específico con el que se cuenta para cada sprint, y esperamos seguir así, para que el trabajo fluya sin inconvenientes.
+
+WEEKLY-SPRINT 5
+
+Como en todas las entregas anteriores realizamos una videollamada para charlar sobre las correcciones que nos realizaron en el sprint anterior. Por suerte las mismas eran muy poquitas y las pudimos encontrar y solucionar en el momento. 
+
+A su vez, analizamos los entregables de este nuevo sprint para poder dividirnos las tareas y encaralo con tiempo y tranquilidad. Si bien nos dividimos las tareas, estamos en continua comunicación entre los tres para ayudarnos y consultarnos por cualquier problema o error que surge. También nos vamos compartiendo todos cambios y mejoras que cada uno va realizando para que todos tengamos los archivos actualizados en nuestros equipos.
+
+Luego de 5 sprints, nos encontramos trabjando enconjunto de gran manera, muy comodos y sin ningun cortocircuito. 
