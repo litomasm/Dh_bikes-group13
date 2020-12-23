@@ -9,3 +9,6 @@ Ya con el sitio maquetado, aplicamos una estructura dinámica, implementamos un 
 
 Ahora nuestro sitio se encuetra preparado para responder a cualquier solicitud por parte del cliente, queriendo agregar, modificar o eliminar productos de la base de datos(JSON) aplicando los diferentes metodos http. Ademas se incorporo una base de dato(JSON) para empezar a familiarizanos con ella. Se le aplico correcciones a algunas vistas, se utilizo express-generator lo que nos facilito al momento de trabajar. Aun queda por agregar funcionalidad a la pagina para que sea segura y funcione perfectamente.
 
+SPRINT 5
+
+En esta ocasión los que ingresan a nuestra página se pueden registar para posteriormente logearse (manteniendo sesión y cookies). Además, en caso de que no ingresen un campo al registrarse o logearse se emitirá un mensaje de error. Los usuarios contarán con un perfil para ver su información y su foto. Pueden confiar en que su contraseña es privada ya que contamos con un sistema de hasheo, lo cual la hace única. Estamos muy felices de como vamos avanzando y de como va quedando nuestra página web. Seguiremos esforzándonos por dar más de nosotros. 
