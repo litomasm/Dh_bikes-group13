@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
     <%-include("./partials/head")%>
 
     <body>
-        <%-include("./partials/header")%>
+        <%-include("./partials/header",{userId:id})%>
         <br>
         <br>
         <main class="mainregistro">
             <h2>Mi Perfil</h2>
             <div class= "fotoProfile">
                 <article class="foto">
-                    <img  src="#" alt="fotoDelUsuario" width="85%" height="100%" title="fotoDelUsuario">
+                    <img  src="/images//users/<%= image %>" alt="fotoDelUsuario" width="85%" height="100%" title="fotoDelUsuario">
                 </article>
             </div>
 

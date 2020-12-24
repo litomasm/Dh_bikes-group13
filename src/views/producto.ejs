@@ -1,30 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <%-include("./partials/head")%>
 
 <body>
-    <%-include("./partials/header")%>
+    <%-include("./partials/header",{userId:id})%>
 <main>
     <br>
     <section id="producto">
-        <article class="foto">
-            <img  src="/images/products/<%= product.image %>" alt="Futura Futy" width="85%" height="100%" title="Futura Futy">
-        </article>
-        <article id="productoInfo">
-            <h2 id="nombreProducto"><%= product.name%></h2>
-            <p class="precio">$ <%= product.price %></p>
-            <br>
-            <br>
-            <p id="cantidadDisponible">3 disponibles</p>
-            <a href="carrito"><button  id="botonAnadir" type="button">Añadir al carrito</button></a>
-            <br>
-            <br>
-            <p id="cuotasDisponibles">12 cuotas de $ <%= product.price / 12 %> </p>
-        </article> 
-        
+        <div class='fotoProductoBici'>
+            <article class="foto">
+                <img  src="/images/products/<%= product.image %>" alt="Futura Futy" width="85%" height="100%" title="Futura Futy">
+            </article>
+        </div>
+        <div>
+            <article id="productoInfo">
+                <h2 id="nombreProducto"><%= product.name%></h2>
+                <p class="precio">$ <%= product.price %></p>
+                <br>
+                <br>
+                <p id="cantidadDisponible">3 disponibles</p>
+                <a href="carrito"><button  id="botonAnadir" type="button">Añadir al carrito</button></a>
+                <br>
+                <br>
+                <p id="cuotasDisponibles">12 cuotas de $ <%= product.price / 12 %> </p>
+            </article> 
+        </div>
         <div id="infoDescrip-Adicional">
-            <div id="DescripcionProducto">
+            <div id="descripcionProducto">
                <h4 class="tituloDescripcionInfo" >Descripcion del producto</h4> <br>
                 <p><%= product.description %></p>
                 
@@ -33,26 +36,20 @@
                     
             <div id="infoAdicional"> 
                 <h4 class="tituloDescripcionInfo">Informacion adicional</h4><br>
-                <p class="descripcionParrafo">¿Qué es una Balance Bike?
-                Se trata de una bicicleta de balance.
-                Una bicicleta en la que el niño/a aprende a montarse en una bici.
-                De a poco irá sintiéndose cómodo en ella.
-                Caminara sobre ella, sin apuros y sin presiones.
-                A medida que el niño/a sienta mas confianza, podrá montarla en su asiento e impulsarse con los pies.
-                Siempre en manos de su destreza física.
-                Luego de ello, y solo cuando el niño se sienta con la suficiente confianza podrá andar mas rápido, doblar, bajar y subir pendientes, etc.
-                Solo el niño/a sabrá cuando será ese momento, y recién allí, cuando ese momento llegue, ese niño, jamas volverá a ser el mismo.
-                Ya sabe andar en bicicleta, ya domina su cuerpo, ya mantiene el equilibrio.
-                En unos pocos años, podrá montar , sin rueditas, la siguiente medida, una rodado 16¨.
-                Es una experiencia que todos los niños/as de esa ¨primera infancia¨ deberían experimentar.
-                Porque es un juego, y porque desde pequeños entenderán que si se lo proponen, es posible.
+                <p class="descripcionParrafo">
+                    <%= product.info %>
                 </p>
-                <br>
-                <br>
-                <a href="/producto/edit/<%= product.id %>" class="action-button edit">EDITAR PRODUCTO</a>
-				<form action="/producto/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
-					<button type="submit" class="action-button delete">ELIMINAR</button>
-				</form>
+            </div>
+            <div class='botonEditYDeleted'>
+                <div class='cajabotonEditYDeleted'>
+                    <%  if(typeof id != 'undefined') { %>
+                    <a href="/producto/edit/<%= product.id %>" class="action-button edit">EDITAR PRODUCTO</a>
+                    <form action="/producto/delete/<%= product.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="action-button delete">ELIMINAR</button>
+                    </form>
+                    <br>
+                    <% } %>
+                </div>
             </div>
         
         </div>

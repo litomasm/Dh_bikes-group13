@@ -23,29 +23,70 @@ function generateNewId(){
 	const products = getAllProducts();
 	return products.pop().id + 1;
 }
+
 const controller = {
     // Root - Show all products
     index: (req, res) => {
-        const products = getAllProducts();
-
-		res.render('allProducts', {products: products});
+        
+        let user={};
+        if(req.session.user){
+            user = req.session.user;
+        }
+        
+        if(user == undefined){
+            const products = getAllProducts();
+            return res.render('allProducts', {products: products});
+        } else{
+            const products = getAllProducts();
+            return res.render('allProducts', {products: products, id:user.id});
+        }
+       
     },
 
     
     detail: (req, res) => {
-        const id = req.params.id;
-        const result = getAllProducts().find((product) => {
-            return product.id == id
-        })
 
-        res.render('producto.ejs', {
-            product: result
-        })
+        let user={};
+        if(req.session.user){
+            user = req.session.user;
+        }
+       
+        if(user == undefined){
+            const id = req.params.id;
+            const result = getAllProducts().find((product) => {
+                return product.id == id
+            })
+    
+            res.render('producto', {
+                product: result
+            })
+        } else{
+            const id = req.params.id;
+            const result = getAllProducts().find((product) => {
+                return product.id == id
+            })
+    
+            res.render('producto', {
+                product: result,
+                id:user.id
+            })
+        }
+       
     },
 
     // Create - Form to create
     create: (req, res) => {
-        res.render('productoCreate.ejs');
+        let user={};
+        if(req.session.user){
+            user = req.session.user;
+        }
+        
+        if(user == undefined){
+            res.render('productoCreate');
+        } else{
+            res.render('productoCreate',{id:user.id});
+        }
+       
     },
 
 
@@ -72,13 +113,30 @@ const controller = {
 
     // Update - Form to edit
     edit: (req, res) => {
-        const products = getAllProducts();
-		const id = req.params.id;
-		const result = products.find((product) => product.id == id);
+        let user={};
+        if(req.session.user){
+            user = req.session.user;
+        }
+        
+        if(user == undefined){
+            const products = getAllProducts();
+            const id = req.params.id;
+            const result = products.find((product) => product.id == id);
 
-		res.render('productoEdit', {
+	    	res.render('productoEdit', {
 			productToEdit: result
-		})
+		    })
+        } else{
+            const products = getAllProducts();
+            const id = req.params.id;
+            const result = products.find((product) => product.id == id);
+
+	    	res.render('productoEdit', {
+            productToEdit: result,
+            id:user.id
+		    })
+        }
+        
     },
 
     

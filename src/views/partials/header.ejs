@@ -8,9 +8,12 @@
     
         </div>
         <div class="divHeader">
-            <a href="/user/login"><button class="botonesHeader" type="submit">Acceder</button></a>
-            <a href="/user/registro"><button class="botonesHeader" type="submit">Crear Cuenta</button></a>
-            <a href="/user/profile"><button class="botonesHeader" type="submit">Perfil</button></a>
+            <% if(typeof userId != 'undefined') { %>
+                <a href="/user/profile"><button class="botonesHeader" type="submit">Perfil</button></a>
+            <% } else { %>
+                <a href="/user/login"><button class="botonesHeader" type="submit">Acceder</button></a>
+                <a href="/user/registro"><button class="botonesHeader" type="submit">Crear Cuenta</button></a>
+            <% } %>
         </div>
     </div>
 

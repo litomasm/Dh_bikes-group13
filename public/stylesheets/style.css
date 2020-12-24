@@ -385,15 +385,26 @@ h3{
 
 #infoDescrip-Adicional {
   display:flex;
-  flex-wrap:wrap;
+  flex-flow:row wrap;
+  justify-content: space-around;
   
+}
+#descripcionProducto{
+  width:40%;
 }
 
 #infoAdicional{
-  width:500px;
+  width:40%;
   margin-left:10px;
   text-align: justify;
 }
+.botonEditYDeleted{
+  width:100%;
+  display:flex;
+  justify-content: center;
+}
+
+
 .delete{
   
   background-color: #34495E;
@@ -564,6 +575,16 @@ h3{
 h4{
   color:#34495E;
   text-align: center;
+}
+.parrafo-errors-p{
+  font-weight:bold ;
+}
+.nombre{
+  border-color: red;
+}
+
+.estilo-boton-archivo{
+  width:100%;
 }
 
 /* CREAR PRODUCTO */
