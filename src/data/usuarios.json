@@ -8,5 +8,13 @@
   "apellido": "Sanchez",
   "email": "litomasm2006@hotmail.com",
   "password": "$2a$10$HBO1R9fWjuk/yzKH2VLtsescBFxUeDTELLKFLa2fga0x/xLVSQdsq"
+ },
+ {
+  "id": 2,
+  "nombre": "Diego",
+  "apellido": "Sabater",
+  "email": "diegosabater_34@hotmail.com",
+  "password": "$2a$10$g2t9GZUBgzg0oyohqaxzxO6k/2sxumewALvu0BCf9CMmGUmLvVAG2",
+  "image": "fotoPerfil-1608835323431-img-PHILCO BICI MOUNTAIN BIKE R26.png"
  }
 ]

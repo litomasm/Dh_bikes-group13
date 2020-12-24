@@ -5,7 +5,19 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
     index: (req, res) => {
-       res.render("index.ejs")
+
+        let user={};
+        if(req.session.user){
+            user = req.session.user;
+        }
+        
+        if(user == undefined){
+            res.render("index.ejs")
+        } else{
+            res.render("index.ejs",{id:user.id})
+        }
+       
+      
     },
     search: (req, res) => {
         // obtener la info del formulario.

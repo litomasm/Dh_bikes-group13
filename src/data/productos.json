@@ -2,7 +2,7 @@
  {
   "id": 1,
   "name": "Bicicleta Randers paseo BKE-300",
-  "price": 45000,
+  "price": "45000",
   "category": "adultos",
   "description": "peso: 15kg, origen: Argentina, material: acero, rodado: 26, suspensión: sin suspensión",
   "image": "bici1.jpg"
@@ -12,10 +12,7 @@
   "name": "Bicicleta Musseta Fantasy R24",
   "price": "39000",
   "category": "",
-  "description": [
-   "peso: 14kg, origen: Argentina, material: acero, rodado: 24, suspensión: sin suspensión,,",
-   ""
-  ],
+  "description": "peso: 14kg, origen: Argentina, material: acero, rodado: 24, suspensión: sin suspensión,,",
   "image": "bici2.jpg"
  },
  {
@@ -39,9 +36,25 @@
   "name": "Bicicleta Mountain Bike Shimano",
   "price": "75000",
   "category": "Adultos",
-  "description": [
-   "-Bicicleta Mountain Bike 26\r\n-Original de Forest\r\n-Llantas doble pared\r\n-Cubiertas "
-  ],
+  "description": "Bicicleta Mountain Bike 26\r\n-Original de Forest\r\n-Llantas doble pared\r\n-Cubiertas ",
   "image": "1606673312660-bici5.jpg"
+ },
+ {
+  "id": 6,
+  "name": "PHILCO BICI MOUNTAIN BIKE R26",
+  "price": "3500",
+  "category": "Deportes",
+  "description": "PHILCO BICI MOUNTAIN BIKE R26",
+  "info": "PHILCO BICI MOUNTAIN BIKE R26",
+  "image": "1608819098212-img-PHILCO BICI MOUNTAIN BIKE R26.png"
+ },
+ {
+  "id": 7,
+  "name": "Gravel Specialized DIVERGE E5 ELITE 2019",
+  "price": "30041",
+  "category": "Deportes",
+  "description": "La Diverge E5 está hecha para explorar nuevos caminos, cambiar de clases y todo lo que esté en el medio, pues redefine las funciones que una bicicleta puede tener. La Diverge es más capaz que nunca. Y con la constante meta de alcanzar tus necesidades, tomamos en cuenta el claro de la llanta. El nuevo cuadro encajará cómodamente con llantas 700 x 42 mm. o 650b x 47 mm.. Con el claro de la llanta, el peso era un gran factor en el desarrollo, y tomando algunas pautas de diseño del desarrollo de la Roubaix, desarrollamos un cuadro de carbono FACT 9r que es uno de los más ligeros de su categoría. Nos alejamos de la tradicional geometría de cross y optamos por algo nunca visto: nuestra geometría Open Road. Puedes pensar en ella como una bicicleta de ruta con una moderna geometría de trail. Esto proporciona el manejo juguetón y una dirección fiable para superar caminos sucios y esquinas difíciles. En la geometría se destaca el eje que es medio centímetro más bajo que en la Diverge anterior, un tubo delantero relajado, vainas cortas y base para llantas cortas. Estos cambios la hacen una bici que no es sólo diversión en la tierra, sino que funciona bien sobre la carretera. Añadido a sus multifacéticos talentos, pusimos 3 montajes para botellas, además de montajes para porta-equipajes y guardabarros. Y esperamos que haga cambios precisos y tenga buenos frenos, por lo que pusimos un grupo Shimano Tiagra, con discos mecánicos y un set de aros Axis Sport Disc con nuestras cubiertas Espoir Sport.\r\n\r\nNuestro cuadro de aluminio E5 Premium viene con Open Road Geometry, que lo hace confortable y seguro, logrando que tu bici sea la herramienta perfecta para tu siguiente aventura.\r\n\r\nLa horquilla ligera hecha con carbono FACT es dura y manejable, y también ligera en peso.\r\n\r\nLos cambios Shimano Tiagra mantienen las cosas funcionando precisa y confiadamente.",
+  "info": "CUADRO: Aluminio Specialized E5 Premium, Open Road Geometry, caja pedalera roscada, eje pasante de 12x142 mm., monturas para disco flat-mount\r\n\r\nHORQUILLA: Carbono Specialized FACT, montura para disco flat-mount, eje pasante de 12x100 mm.\r\n\r\nRUEDA DELANTERA: Axis Sport Disc\r\n\r\nRUEDA TRASERA: Axis Sport Disc\r\n\r\nCÁMARAS: Válvula Presta de 48 mm.\r\n\r\nCUBIERTA DELANTERA: Espoir Sport Reflect, 60 TPI, aro de alambre, protección doble BlackBelt, 700x30 mm.\r\n\r\nCUBIERTA TRASERA: Espoir Sport Reflect, 60 TPI, aro de alambre, protección doble BlackBelt, 700x30 mm.\r\n\r\nPALANCAS: Praxis Alba M30\r\n\r\nPLATOS: 50/34 D\r\n\r\nEJE DE CENTRO: Praxis, rodamientos roscados\r\n\r\nPALANCA DE CAMBIOS: Shimano Tiagra\r\n\r\nDESVIADOR DELANTERO: Shimano Tiagra, 10-vel\r\n\r\nDESVIADOR TRASERO: Shimano Tiagra, caja GS, 10-vel\r\n\r\nCASSETTE: SunRace, 11-34 d, 10-vel\r\n\r\nCADENA: KMC X10, 10-vel c/ Missing Link™ reusable\r\n\r\nFRENO DELANTERO: Tektro Mira, flat-mount, disco mecánico\r\n\r\nFRENO TRASERO: Tektro Mira, flat-mount, disco mecánico\r\n\r\nMANUBRIO: Specialized Shallow Drop, 6061, 70x125 mm., 31,8 mm. de diámetro\r\n\r\nCINTA: Specialized S-Wrap\r\n\r\nSTEM: Specialized, aleación forjada en 3D, 4 tornillos, elevación de 6 grados\r\n\r\nASIENTO: Body Geometry Toupé Sport, raíles de acero, 143 mm.\r\n\r\nPOSTE DE ASIENTO: Aleación, abrazadera de 2 tornillos, retroceso de 12 mm., 27,2 mm., anti-corrosión\r\n\r\nABRAZADERA: Collar de asiento con monturas para porta-equipaje Diverge\r\n\r\nPEDALES: Nylon, 105x78x28 mm., bolilla suelta c/reflectores",
+  "image": "1608819738593-Bicicleta Rodado 28 Gravel Specialized DIVERGE E5 ELITE 2019.jpg"
  }
 ]

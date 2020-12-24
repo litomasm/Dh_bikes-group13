@@ -6,6 +6,8 @@ const logger = require('morgan');
 const methodOverride = require('method-override'); 
 const session = require ("express-session");
 
+const recordameMiddleware = require('./middleware/recordameMiddleware')
+
 
 const app = express();
 
@@ -18,12 +20,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
-app.use(methodOverride('_method')); 
+app.use(methodOverride('_method'));
 app.use(session({
   secret: "secreto",
   resave: false,
   saveUninitialized: true,
 }));
+//tener cuidado  a donde llama al middleware global ya qui si recordameMiddleware lo pongo antes de session rope todo
+app.use(recordameMiddleware); 
 
 const indexRouter = require('./routes/index');
 const productoRouter = require('./routes/productos');

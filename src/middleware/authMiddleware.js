@@ -1,5 +1,5 @@
 const authMiddleware = function(req, res, next){
-    if (req.session.email){
+    if (req.session.user){
         return next();
     }
     res.redirect("/user/login");
