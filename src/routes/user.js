@@ -64,5 +64,7 @@ router.post('/registro', upload.single('fotoPerfil'), uploadUserMiddleware,[
 
 router.get('/profile', authMiddleware, userController.profile);
 
+router.post('/profile', authMiddleware, userController.logout);
+
 
 module.exports = router;

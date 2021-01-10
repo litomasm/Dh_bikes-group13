@@ -106,6 +106,13 @@ const controller = {
         });
      },
 
+     logout: (req, res) => {
+        res.clearCookie('User');
+        req.session.destroy();
+
+        res.redirect('/');
+    }
+
    
 };
 
