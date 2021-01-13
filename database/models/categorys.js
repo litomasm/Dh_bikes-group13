@@ -1,3 +1,5 @@
+
+
 module.exports = function(sequelize, dataTypes){
     let alias = "Category";
     let cols = {
@@ -7,7 +9,7 @@ module.exports = function(sequelize, dataTypes){
             autoIncrement: true
         },
         name: {
-            type:dataTypes.VARCHAR
+            type: dataTypes.STRING
         }
     }
 

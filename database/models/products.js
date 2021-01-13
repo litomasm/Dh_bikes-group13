@@ -1,3 +1,4 @@
+
 module.exports = function(sequelize, dataTypes){
     let alias = "Product";
     let cols = {
@@ -7,7 +8,7 @@ module.exports = function(sequelize, dataTypes){
             autoIncrement: true
         },
         name: {
-            type:dataTypes.VARCHAR
+            type:dataTypes.STRING
         },
         price:{
             type:dataTypes.DECIMAL
@@ -15,11 +16,17 @@ module.exports = function(sequelize, dataTypes){
         category_id: {
             type:dataTypes.INTEGER
         },
+
         image: {
-            type:dataTypes.VARCHAR
+            type: dataTypes.STRING
         },
+        
         description: {
             type:dataTypes.TEXT
+        },
+
+        information: {
+            type: dataTypes.TEXT
         },
     }
 
@@ -36,5 +43,6 @@ module.exports = function(sequelize, dataTypes){
         });
     }
     
-    return Pelicula;
+    return Product;
 }
+

@@ -3,11 +3,14 @@ const path = require('path');
 const bcryptjs = require("bcryptjs");
 const {validationResult} = require('express-validator')
 
+let db = require("../../database/models");
+const { Op } = require("sequelize");
+
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const file = path.join(__dirname, "../data/usuarios.json");
+const file = path.join(__dirname, "../../database/models");
 
-function getAllUsers(){
+/* function getAllUsers(){
     return JSON.parse(fs.readFileSync(file, "utf-8"));
 }
 
@@ -21,14 +24,14 @@ function writeUser (user){
     const usersToSave= [...users, user];
     const userToJson = JSON.stringify(usersToSave, null, " ");
     fs.writeFileSync(file, userToJson);
-}
+} */
 
-const controller = {
+const userController = {
     registro: (req, res) => {
        res.render("registro");
     },
 
-    store: (req, res) => {
+    store: async (req, res) => {
 
         const validation = validationResult(req);
 		
@@ -36,19 +39,19 @@ const controller = {
 			return res.render('registro',{errors:validation.errors});
 		}else{
             const passwordHashed = bcryptjs.hashSync(req.body.password, 10);
-            const user= {
-                id: generateNewId(),
-                nombre: req.body.nombre,
-                apellido: req.body.apellido,
+            await db.Product.create({
+                name: req.body.name,
+                last_name: req.body.last_name,
                 email: req.body.email,
                 password: passwordHashed,
-                image: req.file.filename
-            }
-            req.session.user=user;
-            writeUser(user);
+                avatar: req.files[0].filename,
+                rol: req.body.rol,
+                
+    
+            });
+            res.redirect("/")
 
-            res.redirect("/");
-        }
+          }
      },
 
     login: (req, res) => {
@@ -109,11 +112,11 @@ const controller = {
      logout: (req, res) => {
         res.clearCookie('User');
         req.session.destroy();
-
+        res.cookie("email", null, {maxAge: -1});
         res.redirect('/');
     }
 
    
 };
 
-module.exports = controller
+module.exports = userController

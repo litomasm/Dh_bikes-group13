@@ -1,4 +1,5 @@
-const fs = require('fs');
+
+/* const fs = require('fs');
 const path = require('path');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -22,60 +23,60 @@ function writeProducts(arrayToTransform) {
 function generateNewId(){
 	const products = getAllProducts();
 	return products.pop().id + 1;
-}
+} */
 
-const controller = {
+let db = require("../../database/models");
+const { Op } = require("sequelize");
+
+ const productosController  = {
     // Root - Show all products
-    index: (req, res) => {
-        
-        let user={};
-        if(req.session.user){
-            user = req.session.user;
-        }
-        
-        if(user == undefined){
-            const products = getAllProducts();
-            return res.render('allProducts', {products: products});
-        } else{
-            const products = getAllProducts();
-            return res.render('allProducts', {products: products, id:user.id});
-        }
-       
+    list: (req, res, next) => {
+        db.Product.findAll().then((products)=>{
+            res.render("allProducts", {products})
+        })
     },
 
     
-    detail: (req, res) => {
-
-        let user={};
-        if(req.session.user){
-            user = req.session.user;
-        }
-       
-        if(user == undefined){
-            const id = req.params.id;
-            const result = getAllProducts().find((product) => {
-                return product.id == id
-            })
-    
-            res.render('producto', {
-                product: result
-            })
-        } else{
-            const id = req.params.id;
-            const result = getAllProducts().find((product) => {
-                return product.id == id
-            })
-    
-            res.render('producto', {
-                product: result,
-                id:user.id
-            })
-        }
-       
+    detail: async (req, res) => {
+        const id = req.params.id;
+        const product = await db.Product.findByPk(id, {
+            include: [{association:"category"}]
+        })
+        
+        res.render("producto", {product});
     },
+
+    search: async function (req,res,next){
+        let query = req.query.search_query;
+        const productList = await db.Product.findAll({
+          where: {name : {[Op.like]: '%'+query+'%'}}
+        },{
+          include: ['categorys']
+        });
+        const categories = await db.Category.findAll()
+        const rooms = await db.Room.findAll()
+        return res.render('products/list',{products:productList,categories:categories})
+      }
+      ,
+      filter: async function (req,res,next){
+        const productList = await db.Product.findAll({
+          include: ['categorys']
+        },
+        {where: {
+            [Op.and]: [
+              { category_id: req.query.category_id},
+              
+            ]
+          }
+        });
+      const categories = await db.Category.findAll()
+      const rooms = await db.Room.findAll()
+      const benefits = await db.Benefit.findAll()
+      return res.render('products/list',	{products:productList, categories:categories})
+      },
 
     // Create - Form to create
-    create: (req, res) => {
+    crear: (req, res) => {
         let user={};
         if(req.session.user){
             user = req.session.user;
@@ -84,106 +85,93 @@ const controller = {
         if(user == undefined){
             res.render('productoCreate');
         } else{
-            res.render('productoCreate',{id:user.id});
-        }
+                db.Category.findAll()
+                .then(function(categorys){
+                    return res.render("productoCreate", {categorys : categorys});
+                }
+                )}
        
     },
 
 
-    store: (req, res, next) => {
+    guardado: async (req, res, next) => {
         
-        const image = req.files[0].filename;
-        const newProduct = {
-            id: generateNewId(),
+        await db.Product.create({
             name: req.body.name,
             price: req.body.price,
-            category: req.body.category,
+            category_id: req.body.category,
+            image: req.files[0].filename,
             description: req.body.description,
-            info: req.body.info,
-            image: image
-        }
+            information: req.body.information,
 
-        const products = getAllProducts();
-        const productosAGuardar = [...products, newProduct];
-        const productToStringify = JSON.stringify(productosAGuardar, null, ' ');
-        fs.writeFileSync('./src/data/productos.json', productToStringify);
+        });
+        res.redirect("/producto/")
+      
 
-        res.redirect('/');
+        
     },
 
     // Update - Form to edit
-    edit: (req, res) => {
+    editar: (req, res, next) => {
         let user={};
         if(req.session.user){
             user = req.session.user;
         }
         
         if(user == undefined){
-            const products = getAllProducts();
-            const id = req.params.id;
-            const result = products.find((product) => product.id == id);
-
-	    	res.render('productoEdit', {
-			productToEdit: result
-		    })
+            res.render('productoEdit')
         } else{
-            const products = getAllProducts();
-            const id = req.params.id;
-            const result = products.find((product) => product.id == id);
+            let pedidoProducto =  db.Product.findByPk(req.params.id);
+            let pedidoCategory =  db.Category.findAll();
 
-	    	res.render('productoEdit', {
-            productToEdit: result,
-            id:user.id
-		    })
+            Promise.all([pedidoProducto, pedidoCategory])
+            .then(function([product, categorys]){
+
+            res.render("productoEdit", {product:product, categorys: categorys})
+        })
         }
         
     },
 
     
-    update: (req, res) => {
+    actualizar: (req, res) => {
+        db.Product.update({
+            name: req.body.name,
+            price: req.body.price,
+            category_id: req.body.category,
+            image: req.files[0] ? req.files[0].filename : product.image,
+            description: req.body.description,
+            information: req.body.information,
+        }, {
+            where:{
+                id:req.params.id
+            }
+
+        })
+
+        if (typeof req.files[0] !== 'undefined'){
+            db.Product.update({
+            image: req.files[0].filename},
+            {where:{id:req.params.id}}
+            )
+          }
+
+       
+        res.redirect("/producto/")
 		
-		const products = getAllProducts();
-
-		const id = req.params.id;
-		
-		const newProducts = products.map((product) => {
-
-			if(id == product.id){
-				product.name = req.body.name;
-				product.price = req.body.price;
-				product.category = req.body.category;
-                product.description = req.body.description;
-                product.info = req.body.info;
-				product.image = req.files[0] ? req.files[0].filename : product.image;
-			}
-
-			return product;
-		});
-
-		writeProducts(newProducts);
-
-		res.redirect("/producto/detail/" + id);
 	},
 
 	// Delete - Delete one product from DB
-	destroy: (req, res) => {
+	borrar: (req, res) => {
 		
-        
-        const idProduct = req.params.id;
-        const products = getAllProducts();
-
-        const listProductUpdate = products.filter((product) =>{
-            if(product.id!=idProduct){
-                return product;
+        db.Product.destroy({
+            where:{
+                id: req.params.id
             }
         })
 
-        writeProducts(listProductUpdate);
+        res.redirect("/producto/");
+}
+}; 
 
-        res.redirect('/producto')
-
-
-	}
-};
-
-module.exports= controller; 
+module.exports= productosController; 
