@@ -1,3 +1,4 @@
+
 module.exports = function(sequelize, dataTypes){
     let alias = "User";
     let cols = {
@@ -7,20 +8,22 @@ module.exports = function(sequelize, dataTypes){
             autoIncrement: true
         },
         name: {
-            type:dataTypes.VARCHAR
+            type:dataTypes.STRING
         },
         last_name:{
-            type:dataTypes.VARCHAR
+            type:dataTypes.STRING
         },
         email: {
-            type:dataTypes.VARCHAR
+            type:dataTypes.STRING
         },
         password: {
-            type:dataTypes.VARCHAR
+            type:dataTypes.STRING
         },
+        
         avatar: {
-            type:dataTypes.VARCHAR
+            type:dataTypes.STRING
         },
+
         rol: {
             type:dataTypes.INTEGER
         }

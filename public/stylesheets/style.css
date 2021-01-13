@@ -387,21 +387,26 @@ h3{
   display:flex;
   flex-flow:row wrap;
   justify-content: space-around;
+  width: 100%;
+  text-align: center;
+  
   
 }
 #descripcionProducto{
-  width:40%;
+  width:25%;
 }
 
-#infoAdicional{
-  width:40%;
-  margin-left:10px;
+.infoAdicional{
+  width:25%;
   text-align: justify;
+  margin-left: 20px;
 }
 .botonEditYDeleted{
   width:100%;
   display:flex;
   justify-content: center;
+  text-align: right;
+  padding-left: 80%;
 }
 
 
@@ -829,19 +834,14 @@ h4{
 
   .descripcionParrafo{
     width:100%;
-    text-align: justify;
-
+    
+    padding-left: 30px;
+    
     
   }
 
-  #infoDescrip-Adicional{
-    width: 100%;
-  }
-
-  #infoAdicional{
-    padding-right: 10px;
-  }
-
+ 
+  
   .product-box{
     width:100%;
   }

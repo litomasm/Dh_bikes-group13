@@ -14,7 +14,7 @@
                     <div>
                         <article id="nombreregistro">
                             <label for="nombre">Nombre *</label> <br>
-                            <input type="text" id="nombre" name="nombre">
+                            <input type="text" id="nombre" name="name">
                             <% if (typeof errors != "undefined") { %>    
                                 <% for(let i=0; i < errors.length; i++) { %>  
                                   <% if(errors[i].param=="nombre") { %>
@@ -28,7 +28,7 @@
                     <div>
                         <article id="apellidoregistro">
                             <label for="apellido">Apellido *</label> <br>
-                            <input type="text" id="apellido" name="apellido">
+                            <input type="text" id="apellido" name="last_name">
                             <% if (typeof errors != "undefined") { %>    
                                 <% for(let i=0; i < errors.length; i++) { %>  
                                   <% if(errors[i].param=="apellido") { %>
@@ -66,20 +66,28 @@
                         </article>
                         <div >
                             <article>
-                                <input type="file" name='fotoPerfil' class='estilo-boton-archivo' accept="image/*">
+                                <input type="file" name='avatar' class='estilo-boton-archivo'>
                                 <% if (typeof error != "undefined") { %>    
                                     <p class="parrafo-errors-p"><%= error%></p>
                                 <% } %>
                                 <br><br>
                             </article>
                         </div>
+                        <div>
+                          <article id="nombreregistro">
+                              <label for="nombre">Rol *</label> <br>
+                              <input type="text" id="rol" name="rol">
+                              
+                                <br><br>
+                          </article>
+                      </div>
                     </div>
                     <div>
                         <article id="campos">
                             <p>*Campos Requeridos</p>
                             </article>
                             <p id="suscribir"><input type="checkbox" name="suscribir" id="suscribir"> Suscribite para recibir novedades y promociones </p>
-                            <article id="olvidar"><a href="#"><p>¿Olvidaste tu contraseña?</p></a>
+                            
                         </article> <br>
                     </div>
                     

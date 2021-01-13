@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-
+const path = require("path");
 const authMiddleware = require('../middleware/authMiddleware')
 
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, __dirname + '/../../public/images/products/')
+        cb(null, path.join("public/images/products"))
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + '-' + file.originalname)
@@ -20,12 +20,12 @@ const upload = multer({ storage: storage })
 const productosController = require('../controllers/productosController');
 
 /*** GET ALL PRODUCTS ***/
-router.get('/', productosController.index);
+router.get('/', productosController.list);
 
 
 /*** CREATE ONE PRODUCT */
-router.get('/create', authMiddleware,productosController.create);
-router.post('/create', upload.any(), productosController.store);
+router.get('/create', authMiddleware,productosController.crear);
+router.post('/create', upload.any(), productosController.guardado);
 
 
 
@@ -33,11 +33,17 @@ router.post('/create', upload.any(), productosController.store);
 router.get('/detail/:id/', productosController.detail); // http://localhost:3000/products/detail/6
 
 /*** EDIT ONE PRODUCT */
-router.get('/edit/:id', authMiddleware, productosController.edit);
-router.put('/edit/:id', upload.any(), productosController.update);
+router.get('/editar/:id', authMiddleware, productosController.editar);
+router.post('/editar/:id', upload.any(), productosController.actualizar);
+
+//Filtrar productos
+router.get("/filter", productosController.filter)
+
+//Ruta hacia la búsqueda del producto
+router.get('/search', productosController.search)
 
 /*** DELETE ONE PRODUCT */
-router.delete('/delete/:id', authMiddleware,productosController.destroy);
+router.post('/borrar/:id', authMiddleware,productosController.borrar);
 
 
 module.exports = router;

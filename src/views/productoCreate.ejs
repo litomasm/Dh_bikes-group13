@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <%-include("./partials/head")%>
 
 <body>
-    <%-include("./partials/header",{userId:id})%>
+    <%-include("./partials/header")%>
 <br>
 <br>
     <main class="registroProduct">
@@ -31,14 +32,14 @@
                     <br>
                     <br>
                         <div>
-                        <label class= "categoria" for="category" class="form-label">Categoría:</label>
+                        <label class= "categoria" for="" class="form-label">Categoría:</label>
                         <select name="category" id="category" class="form-input">
-                            <option value="">Elegí</option>
-                            <option value="Niños">Niños</option>
-                            <option value="Adultos">Adultos</option>
-                            <option value="Deportes">Deportes</option>
-                            <option value="Accesorios">Accesorios</option>
-                            <option value="Seguros">Seguros</option>
+                            <% for (let i=0; i <categorys.length; i++){ %>
+                                <option value="<%= categorys[i].id%>">
+                                    <%=categorys[i].name%>
+                             </option>
+                            
+                            <%}%>
                         </select>
                     </div>
                     <br>
@@ -57,7 +58,7 @@
                     <br>
                     <div class="productDescripcion">
                         <label for="description" class="form-label">Información adicional:</label><br>
-                        <textarea name="info" id="info" class="form-input" cols="50" rows="10"></textarea>
+                        <textarea name="information" id="info" class="form-input" cols="50" rows="10"></textarea>
                     </div>
                     <br>
                     <div>

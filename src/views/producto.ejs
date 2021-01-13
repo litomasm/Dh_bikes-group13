@@ -1,16 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
 <%-include("./partials/head")%>
 
 <body>
-    <%-include("./partials/header",{userId:id})%>
+    <%-include("./partials/header")%>
 <main>
     <br>
     <section id="producto">
         <div class='fotoProductoBici'>
             <article class="foto">
-                <img  src="/images/products/<%= product.image %>" alt="Futura Futy" width="85%" height="100%" title="Futura Futy">
+        <img  src="/images/products/<%= product.image %>" alt="Futura Futy" width="85%" height="100%" title="Futura Futy">
             </article>
         </div>
         <div>
@@ -29,29 +30,42 @@
         <div id="infoDescrip-Adicional">
             <div id="descripcionProducto">
                <h4 class="tituloDescripcionInfo" >Descripcion del producto</h4> <br>
-                <p><%= product.description %></p>
+                <p class="descripcionParrafo"><%= product.description %></p>
                 
                 <br>
             </div>
                     
-            <div id="infoAdicional"> 
-                <h4 class="tituloDescripcionInfo">Informacion adicional</h4><br>
+            <div class="infoAdicional"> 
+                <h4 class="tituloDescripcionInfo">Categoría</h4><br>
                 <p class="descripcionParrafo">
-                    <%= product.info %>
+                    <%= product.category.name%>
                 </p>
+                
             </div>
+
+            <div class="infoAdicional"> 
+                <h4 class="tituloDescripcionInfo">Información Adicional</h4><br>
+                <p class="descripcionParrafo">
+                    <%= product.information%>
+                </p>
+            </div>    
+            
+            </div>
+            
             <div class='botonEditYDeleted'>
+              
+            
                 <div class='cajabotonEditYDeleted'>
-                    <%  if(typeof id != 'undefined') { %>
-                    <a href="/producto/edit/<%= product.id %>" class="action-button edit">EDITAR PRODUCTO</a>
-                    <form action="/producto/delete/<%= product.id %>?_method=DELETE" method="POST">
+                    <br>
+                    <button class="action-button delete"> <a href="/producto/editar/<%= product.id %>" >EDITAR PRODUCTO </a></button>
+                    
+                    <form action="/producto/borrar/<%= product.id %>" method="POST">
+                        <br>
                         <button type="submit" class="action-button delete">ELIMINAR</button>
                     </form>
                     <br>
-                    <% } %>
+                    
                 </div>
-            </div>
-        
         </div>
            
     </section>

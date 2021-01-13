@@ -16,18 +16,17 @@ const router = express.Router();
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, __dirname + '/../../public/images/users')
+      cb(null, path.join("public/images/users"))
       
     },
     filename: function (req, file, cb) {
-      console.log(file)
-      cb(null, file.fieldname + '-' + Date.now() + '-' +file.originalname)
+      cb(null, Date.now() + '-' + file.originalname)
     }
   })
    
 const upload = multer({ storage: storage })
 
-const usersFilePath = path.join(__dirname + "/../data/usuarios.json")
+let db = require("../../database/models");
 
 router.get('/login', guestMiddleware,userController.login);
 router.post('/login',[
@@ -40,23 +39,8 @@ router.post('/registro', upload.single('fotoPerfil'), uploadUserMiddleware,[
     check('nombre').isLength({min:2}).withMessage('Este campo debe contener su nombre'),
     check('apellido').isLength({min:2}).withMessage('Este campo debe contener su apellido'),
     check('email').isEmail().withMessage('El email debe ser valido'),
-    body('email').custom(function (value){
-      let fileUsers = fs.readFileSync(usersFilePath,'utf-8');
-      let users;
-      if(fileUsers == ""){
-          users = [];
-      } else {
-          users = JSON.parse(fileUsers);
-      }
-  
-      for (let i = 0; i< users.length; i++){
-        if(users[i].email == value){
-          return false;
-        }
-      }
-      return true;
-    }).withMessage('Usuario ya existente'),
-    check('password').isLength({min: 8}).withMessage('Debe poner una contraseña valida')
+    
+    check('password').isLength({min: 8}).withMessage('Debe poner una contraseña válida')
   ],userController.store);
 
 

@@ -1,11 +1,14 @@
 module.exports= {
   "development": {
     "username": "root",
-    "password": "Monito123!",
+    "password": null,
     "database": "dhbikes",
     "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
+    "dialect": "mysql",
+    "define": {
+      "underscored": true
+    },
+
   "test": {
     "username": "root",
     "password": null,
@@ -20,4 +23,5 @@ module.exports= {
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
+}
 }
