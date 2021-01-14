@@ -12,3 +12,7 @@ Ahora nuestro sitio se encuetra preparado para responder a cualquier solicitud p
 SPRINT 5
 
 En esta ocasión los que ingresan a nuestra página se pueden registar para posteriormente logearse (manteniendo sesión y cookies). Además, en caso de que no ingresen un campo al registrarse o logearse se emitirá un mensaje de error. Los usuarios contarán con un perfil para ver su información y su foto. Pueden confiar en que su contraseña es privada ya que contamos con un sistema de hasheo, lo cual la hace única. Estamos muy felices de como vamos avanzando y de como va quedando nuestra página web. Seguiremos esforzándonos por dar más de nosotros. 
+
+SPRINT 6
+
+Para este print, logramos implementar todo lo que aprendimos de Sequelizer y del manejo de bases de datos con MYSQL. En un primer momento realizamos el diagrama de como nos imaginabamos los cuadros y las relaciones para despues poder implementarlos correctamente. A su vez, ya agregamos todas las funcionalidades para agregar, eliminiar y editar cualquier producto y/o usuario. 
