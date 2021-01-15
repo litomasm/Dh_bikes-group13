@@ -1,16 +1,17 @@
 const fs = require('fs');
 const path = require('path');
-const bcryptjs = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 const {validationResult} = require('express-validator')
+const bcryptjs = require("bcryptjs");
 
 let db = require("../../database/models");
 const { Op } = require("sequelize");
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const file = path.join(__dirname, "../../database/models");
+const file = path.join(__dirname, '../data/usuarios.json');
 
-/* function getAllUsers(){
+ function getAllUsers(){
     return JSON.parse(fs.readFileSync(file, "utf-8"));
 }
 
@@ -24,22 +25,25 @@ function writeUser (user){
     const usersToSave= [...users, user];
     const userToJson = JSON.stringify(usersToSave, null, " ");
     fs.writeFileSync(file, userToJson);
-} */
+} 
 
 const userController = {
     registro: (req, res) => {
        res.render("registro");
     },
 
-    store: async (req, res) => {
+    store:  (req, res, next) => {
 
-        const validation = validationResult(req);
+        const results = validationResult(req);
 		
-		if(!validation.isEmpty()){	
-			return res.render('registro',{errors:validation.errors});
-		}else{
-            const passwordHashed = bcryptjs.hashSync(req.body.password, 10);
-            await db.Product.create({
+		if(!results.isEmpty()){	
+			return res.render('registro',{
+                errors:results.errors,
+                old: req.body
+            });
+		}
+            const passwordHashed = bcrypt.hashSync(req.body.password, 10);
+             db.User.create({
                 name: req.body.name,
                 last_name: req.body.last_name,
                 email: req.body.email,
@@ -49,10 +53,10 @@ const userController = {
                 
     
             });
-            res.redirect("/")
+            res.redirect("/");
 
-          }
-     },
+          },
+     
 
     login: (req, res) => {
         res.render("login");
