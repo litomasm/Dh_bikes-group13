@@ -32,10 +32,17 @@
             
             <a href="/" id="home"><i class="fas fa-home"></i>Home |</a>
             <a href="/producto" id="productos">Productos |</a>
-            <a href="#" id="contacto">Contacto  |</a> 
+            <a href="/contacto" id="contacto">Contacto  |</a> 
             <a href="#" id="nosotros">Sobre Nosotros</a><br> 
             
-            <input type="text" name="busqueda" id="busqueda"  placeholder="Buscá la bicicleta o accesorio que necesitás"> <a href="#"><i class="fas fa-search"></i></a><br><br>
+            <form action="/producto/search" method="GET" >
+               
+                <input id="busqueda" name="search" type="text" placeholder="Buscá la bicicleta o accesorio que necesitás">
+                <button class="fas fa-search"></button>
+               
+            </form>
+
+           <br><br>
         
         </div>
             

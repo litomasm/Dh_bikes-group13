@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%-include("./partials/head")%>
+
+<body>
+    <%-include("./partials/header")%>
+    <main>
+    <div class='box-justiffy'>
+        <% if(searchedProduct.length > 0) { %>
+        <% for (product of searchedProduct) { %>
+            <section class="product-box">
+                <a href="/producto/detail/<%= product.id %>">
+                    <div class="product-box_image">
+                        <img id="image-allProduct" src="/images/products/<%= product.image %>" alt="imagen de producto">
+                    </div>
+                    <article class="product-box_data">
+                        <h2>$ <%= product.price %></h2>
+                            
+                        <p><%= product.name %></p>
+                            
+                    </article>
+                </a>
+            </section>
+        <% } %>
+        
+        <% } else { %>
+        <div class="box-justiffy">
+            <h2  style="color:  #890a10;">No hay productos que coincidan con esa búsqueda</h2>
+        </div>
+        <% } %>
+        
+    </div>       
+
+
+
+</main>
+<%-include("./partials/footer")%>
+</body>
+</html>

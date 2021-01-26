@@ -33,12 +33,14 @@ const indexRouter = require('./routes/index');
 const productoRouter = require('./routes/productos');
 const userRouter = require('./routes/user');
 const carritoRouter = require('./routes/carrito');
+const contactoRouter = require("./routes/contacto");
 
 
 app.use('/', indexRouter);
 app.use('/producto', productoRouter);
 app.use('/user', userRouter);
 app.use('/carrito', carritoRouter);
+app.use("/contacto", contactoRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

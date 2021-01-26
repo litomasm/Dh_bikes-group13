@@ -46,18 +46,16 @@ const { Op } = require("sequelize");
         res.render("producto", {product});
     },
 
-    search: async function (req,res,next){
-        let query = req.query.search_query;
-        const productList = await db.Product.findAll({
-          where: {name : {[Op.like]: '%'+query+'%'}}
-        },{
-          include: ['categorys']
+    search: async function (req, res){
+        const userSearch = req.body.name;
+        const searchedProduct = await db.Product.findAll(userSearch)
+
+        res.render('busqueda', {
+            searchedProduct
         });
-        const categories = await db.Category.findAll()
-        const rooms = await db.Room.findAll()
-        return res.render('products/list',{products:productList,categories:categories})
-      }
-      ,
+        
+    },
+    
       filter: async function (req,res,next){
         const productList = await db.Product.findAll({
           include: ['categorys']
@@ -134,11 +132,10 @@ const { Op } = require("sequelize");
     },
 
     
-    actualizar: (req, res) => {
-        db.Product.update({
+    actualizar: async (req, res) => {
+       await db.Product.update({
             name: req.body.name,
             price: req.body.price,
-            category_id: req.body.category,
             image: req.files[0] ? req.files[0].filename : product.image,
             description: req.body.description,
             information: req.body.information,
@@ -149,12 +146,6 @@ const { Op } = require("sequelize");
 
         })
 
-        if (typeof req.files[0] !== 'undefined'){
-            db.Product.update({
-            image: req.files[0].filename},
-            {where:{id:req.params.id}}
-            )
-          }
 
        
         res.redirect("/producto/")

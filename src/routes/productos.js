@@ -34,7 +34,7 @@ router.get('/detail/:id/', productosController.detail); // http://localhost:3000
 
 /*** EDIT ONE PRODUCT */
 router.get('/editar/:id', authMiddleware, productosController.editar);
-router.post('/editar/:id', upload.any(), productosController.actualizar);
+router.put('/editar/:id', upload.any(), productosController.actualizar);
 
 //Filtrar productos
 router.get("/filter", productosController.filter)
