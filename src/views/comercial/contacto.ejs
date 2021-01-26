@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%-include("../partials/head")%>
+
+    <body clas = "body">
+        <%-include("../partials/header")%>
+        <br>
+        <br>
+        <main class="mainregistro">
+            <h2>Formulario de Contacto</h2>
+            <div class="formregistro">
+                <form class="formregister" action="/user/registro" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <article id="nombreregistro">
+                            <label for="nombre">Nombre *</label> <br>
+                            <input type="text" id="nombre" name="name">
+                              
+                              <br><br>
+                        </article>
+                    </div>
+                    <div>
+                        <article id="apellidoregistro">
+                            <label for="apellido">Apellido *</label> <br>
+                            <input type="text" id="apellido" name="last_name">
+                             
+                            <br><br>
+                        </article>
+                    </div>
+                    <div>
+                        <article id="primeritem">
+                            <label for="correo">Correo Electrónico *</label> <br>
+                            <input type="email" id="mail" name="email">
+                           
+                            <br><br>
+                            <label for="telefono">Teléfono *</label> <br>
+                            <input type="text" id="password3" name="password">
+                            
+                            
+                              <br><br>  
+                        </article>
+                     </div>   
+                        <div class= "motivoContacto">
+                        <label class= "categoria" for="" class="form-label">Motivo de contacto:</label>
+                        <select name="category" id="category" class="form-input">
+                           
+                                <option value="compra"> Compra   </option>    
+                                <option value="compra"> Consulta   </option>     
+                                <option value="compra"> Reclamo   </option>                          
+                                                         
+                            
+                        </select>
+                        <br>
+                        <br>                  
+                         </div>
+
+                         <div class="ayuda">
+                            <label for="description" class="form-label">¿En qué te podemos ayudar?</label><br>
+                            <textarea name="information" id="info" class="form-input" cols="50" rows="10"></textarea>
+                        </div>
+                    <div>
+                        <article id="campos">
+                            <p>*Campos Requeridos</p>
+                            </article>
+                            
+                            
+                        </article> <br>
+                    </div>
+                    
+                    
+                
+                    <a href="#"><button id="botonregistro" type="submit">Enviar</button></a>
+                <br>
+                <br>
+                </form>
+                
+                <div>
+                    <h4>Tus datos personales se utilizarán para procesar el contacto correspondiente, y así, mejorar tu experiencia en esta web, gestionar el acceso a tu cuenta y otros propósitos descritos en nuestra <a href="#">política de privacidad.</a></h4>
+                </div>
+                
+            </div>
+
+            
+            
+        </main>
+<br>
+        <%-include("../partials/footer")%>
+
+    </body>
+</html>

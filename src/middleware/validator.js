@@ -3,7 +3,7 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 const fs = require('fs');
 const db = require('../../database/models');
-
+const {user}= require('../../database/models');
 
 module.exports = {
     register: [
@@ -14,12 +14,19 @@ module.exports = {
             .isEmail()
             .withMessage('Email con formato incorrecto')
             .bail()
-            .custom(emailValue => {
-                const users = db.User.findAll();
-                const userFound = users.find(user => user.email == emailValue);
-                return !userFound;
-            })
-            .withMessage('Email ya registrado'),
+            .custom((value, {req})=> {
+              return User.findOne({
+                   where:{
+                       email:value
+                   }
+               })
+               .then(user => {
+                   if(user){
+                       return Promise.reject("Email registrado");
+                   }
+               })
+            }),
+            
         body('password')
             .notEmpty()
             .withMessage('El campo es obligatorio')
@@ -43,26 +50,23 @@ module.exports = {
             })
             .withMessage('Extensión inválida. Las extensiones aceptadas son: JPG, PNG y JPEG')
     ],
-    login:[
+    login:
         body('email')
         .notEmpty()
         .withMessage('El campo email es obligatorio')
         .bail()
-        .isEmail()
-        .withMessage('Email con formato incorrecto')
-        .bail()
-        .custom((value, { req }) => {
-            const allUsers = getAllUsers();
-            const userFound = allUsers.find(user => value == user.email);
-
-            if(userFound){
-                if(bcrypt.compareSync(req.body.password, userFound.password)){
-                    return true;
+          .custom((value, { req }) => {
+            return db.User.findOne({
+                where:{
+                    email: value
                 }
-                return false;
-            }
-            return false;
+            })
+            .then((user) =>{
+                if(!user || !bcrypt.compareSync(req.body.password, user.password)){
+                    return Promise.reject("El email y contraseña no coinciden");
+                }
+            })
         })
-        .withMessage('Email o contraseña inválidos')
-    ]
+        
+    
 }

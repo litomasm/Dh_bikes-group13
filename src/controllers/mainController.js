@@ -25,6 +25,10 @@ const controller = {
         // almacenar en una variable
         // renderizar la vista
     },
+
+    contacto: (req, res) => {
+       res.render("comercial/contacto")
+    },
 };
 
 module.exports = controller;
