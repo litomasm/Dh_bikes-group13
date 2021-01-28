@@ -6,7 +6,7 @@ const db = require('../../database/models');
 const {user}= require('../../database/models');
 
 module.exports = {
-    register: [
+    registro: [
         body('email')
             .notEmpty()
             .withMessage('El campo email es obligatorio')

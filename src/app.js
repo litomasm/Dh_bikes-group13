@@ -34,11 +34,13 @@ const productoRouter = require('./routes/productos');
 const userRouter = require('./routes/user');
 const carritoRouter = require('./routes/carrito');
 const contactoRouter = require("./routes/contacto");
+const apiRouter = require('./routes/apiRouter');
 
 
 app.use('/', indexRouter);
 app.use('/producto', productoRouter);
 app.use('/user', userRouter);
+app.use('/api', apiRouter);
 app.use('/carrito', carritoRouter);
 app.use("/contacto", contactoRouter)
 
