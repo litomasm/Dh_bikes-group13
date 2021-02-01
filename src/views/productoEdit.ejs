@@ -34,15 +34,15 @@
                         <div>
                         <label class= "categoria" for="category" class="form-label">Categoría:</label>
                         <select name="category" id="category" class="form-input" >
-                            <% for (let i=0; i<categorys.length; i++) { %>
-                                <% if (categorys[i].id == product.caterory_id) { %>
+                            <% for (let i=0; i<categories.length; i++) { %>
+                                <% if (categories[i].id == product.categories_id) { %>
                                     <option value="<%=categorys[i].id %>" >
-                                        <%=categorys[i].name%>
+                                        <%=categories[i].name%>
                                     </option>
 
                                 <% } else { %>
-                                    <option value="<%=categorys[i].id %>">
-                                        <%=categorys[i].name%>
+                                    <option value="<%=categories[i].id %>">
+                                        <%=categories[i].name%>
                                     </option>
                                     <%}  %>  
                             
