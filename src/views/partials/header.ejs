@@ -10,9 +10,12 @@
         <div class="divHeader">
             <% if(typeof userId != 'undefined') { %>
                 <a href="/user/profile"><button class="botonesHeader" type="submit">Perfil</button></a>
+                <form action="/user/profile" method="POST" class='caja-logout'>
+                    <a href="#"><button class="botonesHeader" id="logout" type="submit">Cerrar Sesión</button></a>
+                </form>
             <% } else { %>
                 <a href="/user/login"><button class="botonesHeader" type="submit">Acceder</button></a>
-                <a href="/user/registro"><button class="botonesHeader" type="submit">Crear Cuenta</button></a>
+                <a href="/user/registro"><button class="botonesHeader" type="submit">Registrarse</button></a>
             <% } %>
         </div>
     </div>
