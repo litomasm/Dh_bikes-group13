@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-01-2021 a las 00:06:25
+-- Tiempo de generación: 01-02-2021 a las 05:05:12
 -- Versión del servidor: 10.4.16-MariaDB
 -- Versión de PHP: 7.4.12
 
@@ -18,16 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `dhbikes`
+-- Base de datos: `dhbikesdb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorys`
+-- Estructura de tabla para la tabla `categories`
 --
 
-CREATE TABLE `categorys` (
+CREATE TABLE `categories` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
@@ -36,10 +36,10 @@ CREATE TABLE `categorys` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `categorys`
+-- Volcado de datos para la tabla `categories`
 --
 
-INSERT INTO `categorys` (`id`, `name`, `created_at`, `updated_at`, `deleted_at`) VALUES
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'niños', '2021-01-10 17:38:03', '2021-01-10 17:38:03', '2021-01-10 17:38:03'),
 (2, 'adultos', '2021-01-10 17:38:28', '2021-01-10 17:38:28', '2021-01-10 17:38:28'),
 (3, 'deportes', '2021-01-10 17:38:52', '2021-01-10 17:38:52', '2021-01-10 17:38:52'),
@@ -72,7 +72,11 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `name`, `price`, `category_id`, `image`, `description`, `information`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Bicicleta roja', '20000', 1, '1610427578108-bici1.jpg', 'Bicicleta roja con ruedas', '', '2021-01-10 17:40:32', '2021-01-10 17:40:32', '2021-01-10 17:40:32'),
 (15, 'Bicicleta Randers paseo BKE-300', '45000', 2, '1610427543701-bici2.jpg', 'peso: 15kg, \r\norigen: Argentina, \r\nmaterial: acero, \r\nrodado: 26, \r\nsuspensión: sin suspensión', 'Color disponible: rojo', '2021-01-12 03:24:48', '2021-01-12 03:24:48', '2021-01-12 03:24:48'),
-(16, 'Bicicleta Musseta Fantasy R24', '45000', 3, '1610511048784-bici4.jpg', 'peso: 14kg,\r\norigen: Argentina,\r\nmaterial: acero, \r\nrodado: 24, \r\nsuspensión: sin suspensión', 'Color disponible: amarillo', '2021-01-12 03:26:07', '2021-01-12 03:26:07', '2021-01-12 03:26:07');
+(16, 'Bicicleta Musseta Fantasy R24', '46000', 3, '1612109832063-bici1-1.jpg', 'peso: 14kg,\r\norigen: Argentina,\r\nmaterial: acero, \r\nrodado: 24, \r\nsuspensión: sin suspensión', 'Color disponible: amarillo', '2021-01-12 03:26:07', '2021-01-12 03:26:07', '2021-01-12 03:26:07'),
+(19, 'bicicleta verde', '45000', 3, '1612058651080-bici3.jpg', 'La mejor bici para hacer deportes', 'comprala y tendrás un obsequio', '2021-01-31 02:04:11', '2021-01-31 02:04:11', '2021-01-31 02:04:11'),
+(21, 'bicicleta 5', '45000', 1, '1612109832063-bici1-1.jpg', '', '', '2021-01-31 16:17:12', '2021-01-31 16:17:12', '2021-01-31 16:17:12'),
+(22, 'bicicleta amarilla', '25000', 4, '1612123707289-bici1-2.jpg', 'nueva', 'excelente', '2021-01-31 20:08:27', '2021-01-31 20:08:27', '2021-01-31 20:08:27'),
+(23, 'bicicleta celeste', '50000', 3, '1612144130165-bici1-2.jpg', 'ok', 'ok', '2021-02-01 01:48:50', '2021-02-01 01:48:50', '2021-02-01 01:48:50');
 
 -- --------------------------------------------------------
 
@@ -87,7 +91,6 @@ CREATE TABLE `users` (
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `avatar` varchar(255) NOT NULL,
-  `rol` int(10) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp(),
   `deleted_at` datetime NOT NULL DEFAULT current_timestamp()
@@ -97,21 +100,17 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `password`, `avatar`, `rol`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 'Miguel', 'santin', 'alejandro@hotmail.com', '$2a$10$jLktjjhbw5/42QUfSNv4S.yM7lF9EDigREcSLmn5KXzab6cwGLCGK', 'avatar-function now() { [native code] }.jpg', 0, '2021-01-14 00:42:38', '2021-01-14 00:42:38', '2021-01-14 00:42:38'),
-(3, 'Miguel', 'santin', 'alejandro@hotmail.com', '$2a$10$STy45PXRv/TJPGt7YmBf0u3BzgKBVPNwqXHXTIob0EckUFi4OWMFq', 'avatar-function now() { [native code] }.jpg', 0, '2021-01-14 00:47:01', '2021-01-14 00:47:01', '2021-01-14 00:47:01'),
-(4, 'Miguel', 'santin', 'alejandro@hotmail.com', '$2a$10$ct6KtG.srZ922b/OryIUH.JKQwW0Qo9PeWa6mOIgxm8/Iur.DhH4i', 'avatar-function now() { [native code] }.jpg', 0, '2021-01-14 00:53:04', '2021-01-14 00:53:04', '2021-01-14 00:53:04'),
-(5, 'Alejandro', 'San', 'litomasm2008@gmail.com', '$2a$10$TYEuzOCziOSj8AV/G0NoCuH1eXcZfqTl1g8FytgK85.aWsqazYj3q', 'avatar-function now() { [native code] }.jpg', 0, '2021-01-14 00:57:26', '2021-01-14 00:57:26', '2021-01-14 00:57:26'),
-(6, 'Emanuel', 'Santin', 'alejandro55@hotmail.com', '$2a$10$X.GpcNSBXQwt2IPBo0qNuOrYQvXdVcpBYyl21uiIHWsu8YNgPQ4se', 'avatar-function now() { [native code] }.jpg', 0, '2021-01-15 00:10:27', '2021-01-15 00:10:27', '2021-01-15 00:10:27');
+INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `password`, `avatar`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Miguel', 'sanchez', 'litomasm2006@hotmail.com', '$2a$10$Qbfs5HRcYj0JVsa63OYSg.Kxj18aKm0kwvNPpOV3JYZ8tqtMo2w.y', 'avatar-bici4.jpg.jpg', '2021-01-31 14:00:49', '2021-01-31 14:00:49', '2021-01-31 14:00:49');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `categorys`
+-- Indices de la tabla `categories`
 --
-ALTER TABLE `categorys`
+ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -132,22 +131,22 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT de la tabla `categorys`
+-- AUTO_INCREMENT de la tabla `categories`
 --
-ALTER TABLE `categorys`
+ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -157,7 +156,7 @@ ALTER TABLE `users`
 -- Filtros para la tabla `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categorys` (`id`);
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

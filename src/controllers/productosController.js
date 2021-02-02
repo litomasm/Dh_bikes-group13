@@ -27,6 +27,7 @@ function generateNewId(){
 
 let db = require("../../database/models");
 const { Op } = require("sequelize");
+const {check, validationResult, body} = require('express-validator')
 
  const productosController  = {
     // Root - Show all products
@@ -40,7 +41,7 @@ const { Op } = require("sequelize");
     detail: async (req, res) => {
         const id = req.params.id;
         const product = await db.Product.findByPk(id, {
-            include: [{association:"category"}]
+            include: ["categories"]
         })
         
         res.render("producto", {product});
@@ -58,7 +59,7 @@ const { Op } = require("sequelize");
     
       filter: async function (req,res,next){
         const productList = await db.Product.findAll({
-          include: ['categorys']
+          include: ['categories']
         },
         {where: {
             [Op.and]: [
@@ -67,14 +68,14 @@ const { Op } = require("sequelize");
             ]
           }
         });
-      const categories = await db.Category.findAll()
+      const categories = await db.Categorie.findAll()
       const rooms = await db.Room.findAll()
       const benefits = await db.Benefit.findAll()
       return res.render('products/list',	{products:productList, categories:categories})
       },
 
     // Create - Form to create
-    crear: (req, res) => {
+    crear: (req, res, next) => {
         let user={};
         if(req.session.user){
             user = req.session.user;
@@ -84,8 +85,8 @@ const { Op } = require("sequelize");
             res.render('productoCreate');
         } else{
                 db.Category.findAll()
-                .then(function(categorys){
-                    return res.render("productoCreate", {categorys : categorys});
+                .then(function(categories){
+                    return res.render("productoCreate", {categories : categories});
                 }
                 )}
        
@@ -93,22 +94,26 @@ const { Op } = require("sequelize");
 
 
     guardado: async (req, res, next) => {
-        
-        await db.Product.create({
+        let errors = validationResult(req);
+        if (!errors.isEmpty()){
+            res.render('productoCreate', {errors: errors.errors})
+        } else {
+
+        const newProduct={ 
             name: req.body.name,
             price: req.body.price,
             category_id: req.body.category,
             image: req.files[0].filename,
             description: req.body.description,
             information: req.body.information,
-
-        });
-        res.redirect("/producto/")
-      
+        };
+        await db.Product.create(newProduct);
+        
+        res.redirect("/producto/");
+    }
+},
 
         
-    },
-
     // Update - Form to edit
     editar: (req, res, next) => {
         let user={};
@@ -123,9 +128,9 @@ const { Op } = require("sequelize");
             let pedidoCategory =  db.Category.findAll();
 
             Promise.all([pedidoProducto, pedidoCategory])
-            .then(function([product, categorys]){
+            .then(function([product, categories]){
 
-            res.render("productoEdit", {product:product, categorys: categorys})
+            res.render("productoEdit", {product:product, categories: categories})
         })
         }
         

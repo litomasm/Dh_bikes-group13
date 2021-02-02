@@ -24,9 +24,9 @@ module.exports = function(sequelize, dataTypes){
             type:dataTypes.STRING
         },
 
-        rol: {
+       /* rol: {
             type:dataTypes.INTEGER
-        }
+        }*/
     }
 
     let config = {

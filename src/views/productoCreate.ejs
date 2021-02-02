@@ -19,6 +19,18 @@
         <div class="formRegistroProducto">
             <form class="formRegistroProducto2" action="/producto/create" method="POST" enctype="multipart/form-data">
                 <div>
+                    <ul class="errors"></ul>
+                    <% if (typeof errors != "undefined") { %>
+							
+                        <% errors.forEach(error => { %>
+                         
+                            <p><%= error.msg %> </p>
+                        <% }) %>
+        
+                    <% } %>
+                </div>
+                
+                <div>
                     <div>
                         <label class="nombreDelProducto" for="name" class="form-label">Nombre del producto:</label><br>
                         <input class="nombreDelProducto" type="text" id="name" name="name" placeholder="Ej: Bicicleta Vairo" class="form-input">
@@ -34,12 +46,12 @@
                         <div>
                         <label class= "categoria" for="" class="form-label">Categoría:</label>
                         <select name="category" id="category" class="form-input">
-                            <% for (let i=0; i <categorys.length; i++){ %>
-                                <option value="<%= categorys[i].id%>">
-                                    <%=categorys[i].name%>
-                             </option>
-                            
-                            <%}%>
+                           
+                            <% for (const category of categories) { %>
+                                <option value= <%= category.id %>  >/ <%= category.name %></option>
+                            <% } %>
+
+                           
                         </select>
                     </div>
                     <br>
@@ -72,6 +84,6 @@
 </main>
  
     <%-include("./partials/footer")%>
-   
+   <script src="/scripts/productCreateValidation.js"></script> 
 </body>
 </html>

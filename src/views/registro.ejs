@@ -8,79 +8,78 @@
         <br>
         <br>
         <main class="mainregistro">
+            
+        
             <h2>Formulario de Registro</h2>
             <div class="formregistro">
                 <form class="formregister" action="/user/registro" method="POST" enctype="multipart/form-data">
+                    <ul class="errors"></ul>
+                    <% if (typeof errors != "undefined") { %>
+							
+                        <% errors.forEach(error => { %>
+                         
+                            <p><%= error.msg %> </p>
+                        <% }) %>
+        
+                    <% } %>
                     <div>
                         <article id="nombreregistro">
                             <label for="nombre">Nombre *</label> <br>
-                            <input type="text" id="nombre" name="name">
-                            <% if (typeof errors != "undefined") { %>    
-                                <% for(let i=0; i < errors.length; i++) { %>  
-                                  <% if(errors[i].param=="nombre") { %>
-                                    <p class="parrafo-errors-p"><%= errors[i].msg%></p>
-                                  <% } %>
-                                <% } %>
-                              <% } %>  
-                              <br><br>
+                            <input type="text" id="nombre" name="name" >
+                             <br><br>
                         </article>
                     </div>
+                   <!-- <small>
+                        <%= typeof errors === 'undefined' ? '' : errors.name ? errors.name.msg : '' %>
+                    </small> -->
                     <div>
                         <article id="apellidoregistro">
                             <label for="apellido">Apellido *</label> <br>
-                            <input type="text" id="apellido" name="last_name">
-                            <% if (typeof errors != "undefined") { %>    
-                                <% for(let i=0; i < errors.length; i++) { %>  
-                                  <% if(errors[i].param=="apellido") { %>
-                                    <p class="parrafo-errors-p"><%= errors[i].msg%></p>
-                                  <% } %>
-                                <% } %>
-                              <% } %>  
+                            <input type="text" id="apellido" name="last_name" >
+                            
                             <br><br>
                         </article>
                     </div>
+                   <!--  <small>
+                        <%= typeof errors === 'undefined' ? '' : errors.last_name ? errors.last_name.msg : '' %>
+                    </small> -->
                     <div>
                         <article id="primeritem">
                             <label for="correo">Correo Electrónico *</label> <br>
-                            <input type="email" id="mail" name="email">
-                            <% if (typeof errors != "undefined") { %>    
-                                <% for(let i=0; i < errors.length; i++) { %>  
-                                  <% if(errors[i].param=="email") { %>
-                                    <p class="parrafo-errors-p"><%= errors[i].msg%></p>
-                                  <% } %>
-                                <% } %>
-                              <% } %>  
+                            <input type="email" id="mail" name="email" >
+                            <!-- <small>
+                                <%= typeof errors === 'undefined' ? '' : errors.email ? errors.email.msg : '' %>
+                            </small>-->
+                             
                             <br><br>
                             <label for="password3">Contraseña *</label> <br>
                             <input type="password" id="password3" name="password">
                            <!--<label for="correo">Confirma Contraseña *</label> <br>
                             <input type="password" id="password4" name="password"><br>--> 
-                            <% if (typeof errors != "undefined") { %>    
-                                <% for(let i=0; i < errors.length; i++) { %>  
-                                  <% if(errors[i].param=="password") { %>
-                                    <p class="parrafo-errors-p"><%= errors[i].msg%></p>
-                                  <% } %>
-                                <% } %>
-                              <% } %>
+                           
                               <br><br>  
                         </article>
+                       <!-- <small>
+                            <%= typeof errors === 'undefined' ? '' : errors.password ? errors.password.msg : '' %>
+                        </small>-->
                         <div >
                             <article>
-                                <input type="file" name='avatar' class='estilo-boton-archivo'>
-                                <% if (typeof error != "undefined") { %>    
-                                    <p class="parrafo-errors-p"><%= error%></p>
-                                <% } %>
+                                <input type="file" id= "avatar" name='avatar' class='estilo-boton-archivo'>
+                               
                                 <br><br>
                             </article>
                         </div>
-                        <div>
+                        <!--<small>
+                            <%= typeof errors === 'undefined' ? '' : errors.avatar ? errors.avatar.msg : '' %>
+                        </small>-->
+                       <!-- <div>
                           <article id="nombreregistro">
                               <label for="nombre">Rol *</label> <br>
                               <input type="text" id="rol" name="rol">
                               
                                 <br><br>
                           </article>
-                      </div>
+                      </div>-->
                     </div>
                     <div>
                         <article id="campos">
@@ -96,12 +95,13 @@
                     <a href="#"><button id="botonregistro" type="submit">Registrarse</button></a>
                 
                 </form>
-            </div>
+
+                 </div>
             <h4>Tus datos personales se utilizarán para procesar tu pedido, mejorar tu experiencia en esta web, gestionar el acceso a tu cuenta y otros propósitos descritos en nuestra <a href="#">política de privacidad.</a></h4>
             
         </main>
 <br>
         <%-include("./partials/footer")%>
-
+         <script src="/scripts/registerValidation.js"></script>
     </body>
 </html>

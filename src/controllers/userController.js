@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const bcrypt = require("bcryptjs");
-const {validationResult} = require('express-validator')
+const {check, validationResult, body} = require('express-validator')
 const bcryptjs = require("bcryptjs");
+
 
 let db = require("../../database/models");
 const { Op } = require("sequelize");
@@ -11,7 +11,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const file = path.join(__dirname, '../data/usuarios.json');
 
- function getAllUsers(){
+/* function getAllUsers(){
     return JSON.parse(fs.readFileSync(file, "utf-8"));
 }
 
@@ -25,37 +25,44 @@ function writeUser (user){
     const usersToSave= [...users, user];
     const userToJson = JSON.stringify(usersToSave, null, " ");
     fs.writeFileSync(file, userToJson);
-} 
+} */
 
 const userController = {
     registro: (req, res) => {
        res.render("registro");
     },
 
-    store:  (req, res, next) => {
-
-        const results = validationResult(req);
-		
-		if(!results.isEmpty()){	
-			return res.render('registro',{
-                errors:results.errors,
-                old: req.body
-            });
-		}
-            const passwordHashed = bcrypt.hashSync(req.body.password, 10);
-             db.User.create({
-                name: req.body.name,
-                last_name: req.body.last_name,
-                email: req.body.email,
-                password: passwordHashed,
-                avatar: req.files[0].filename,
-                rol: req.body.rol,
-                
-    
-            });
+    store:  async (req, res) => {
+        console.log("1")
+        let errors = validationResult(req);
+        if (!errors.isEmpty()){
+            console.log("2")
+            res.render('registro', {errors: errors.errors});
+        } 
+        
+        await db.User.create({
+			name: req.body.name,
+			last_name: req.body.last_name,
+			email: req.body.email,
+			password: bcryptjs.hashSync(req.body.password, 5),
+			/* avatar: req.files[0].filename, */
+            avatar: req.files[0] ? req.files[0].filename : '',
+            
+        }).catch(error => console.log(error));
+        
+        console.log({
+			name: req.body.name,
+			last_name: req.body.last_name,
+			email: req.body.email,
+			password: bcryptjs.hashSync(req.body.password, 5),
+			/* avatar: req.files[0].filename, */
+            avatar: req.files[0] ? req.files[0].filename : '',
+            
+        })
             res.redirect("/");
 
-          },
+          
+        },
      
 
     login: (req, res) => {
@@ -78,9 +85,7 @@ const userController = {
 
             const formPassword = req.body.password;
 
-            
-
-
+         
             if(user && bcryptjs.compareSync(formPassword, user.password)){
                 
                 

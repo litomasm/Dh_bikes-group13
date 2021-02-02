@@ -1,54 +1,49 @@
 const { body } = require('express-validator');
-const path = require('path');
 const bcrypt = require('bcryptjs');
-const fs = require('fs');
+const path = require('path')
 const db = require('../../database/models');
-const {user}= require('../../database/models');
+const usersController = require('../controllers/userController');
 
 module.exports = {
     registro: [
+        body("name")
+         .isLength({min:3})
+         .withMessage("Campo de nombre debe tener un mínimo de 3 caracteres"),
+        body("last_name")
+         .isLength({min:3})
+         .withMessage("Campo de apellido debe tener un mínimo de 3 caracteres"),
         body('email')
-            .notEmpty()
-            .withMessage('El campo email es obligatorio')
-            .bail()
             .isEmail()
-            .withMessage('Email con formato incorrecto')
+            .withMessage('El email debe ser válido')
             .bail()
-            .custom((value, {req})=> {
-              return User.findOne({
-                   where:{
-                       email:value
-                   }
-               })
-               .then(user => {
-                   if(user){
-                       return Promise.reject("Email registrado");
-                   }
-               })
-            }),
-            
+            .custom(async (value) => {
+                
+				const exists = await db.User.findOne({
+					where: {
+						email: value,
+					},
+				});
+				if (exists) {
+					return Promise.reject();
+				}
+			})
+			.withMessage('El usuario ya existe'), 
+          
         body('password')
-            .notEmpty()
-            .withMessage('El campo es obligatorio')
-            .bail()
             .isLength({min: 6})
-            .withMessage('La contraseña debe tener al menos 6 caracteres')
-            .bail()
-            .custom((value, { req }) => value == req.body.retype)
-            .withMessage('Las contraseñas no coinciden'),
-        body('retype')
-            .notEmpty()
-            .withMessage('Es obligatorio repetir la contraseña'),
+            .withMessage('La contraseña debe tener al menos 6 caracteres'),
+            
+        
         body('avatar')
-            .custom((valueImg, { req }) => req.files[0])
-            .withMessage('El avatar es obligatorio')
-            .bail()
-            .custom((value, { req }) => {
-                const acceptedExtensions = ['.jpg', '.png', 'jpeg'];
-                const fileExt = path.extname(req.files[0].originalname);
-                return acceptedExtensions.includes(fileExt);
-            })
-            .withMessage('Extensión inválida. Las extensiones aceptadas son: JPG, PNG y JPEG')
+        .custom((value, { req }) => req.files[0])
+        .withMessage('La imagen de perfil es obligatoria')
+        .bail()
+        .custom((value, { req }) => {
+            const extn = path.extname(req.files[0].originalname);
+            return extn == '.jpg' || extn == '.png' || extn == '.jpeg';
+        })
+        .withMessage('Formato incorrecto'),
+        
     ],
     login:
         body('email')
