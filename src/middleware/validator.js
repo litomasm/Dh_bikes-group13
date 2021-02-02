@@ -1,8 +1,7 @@
 const { body } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const {User}= require('../../database/models/users');
 const path = require('path')
-const db = require('../../database/models/users');
+const db = require('../../database/models');
 const usersController = require('../controllers/userController');
 
 module.exports = {
@@ -18,6 +17,7 @@ module.exports = {
             .withMessage('El email debe ser válido')
             .bail()
             .custom(async (value) => {
+                
 				const exists = await db.User.findOne({
 					where: {
 						email: value,

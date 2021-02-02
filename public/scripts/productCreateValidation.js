@@ -1,62 +1,48 @@
+window.addEventListener("load", function () {
+    console.log(window, "window");
+
 const form = document.querySelector('form');
 
 const name = document.querySelector('#name');
 const price = document.querySelector('#price');
 const image = document.querySelector('#image');
-const productType = document.querySelectorAll('.categoria');
-let productCategory = "" ;
+const description = document.querySelector('#description');
+const info = document.querySelector('#info');
 
-//Función que resetea los errores
-function resetErrorTip(){
-    document.querySelectorAll('.tip').forEach (el => {
-        el.classList.remove('error')
-    })
-}
-
-const errorsElement = document.querySelector(".errors");
-
-for (producto of productType) {
-     producto.onclick = function(){ 
-        for (let categoria of productType){
-            categoria.classList.remove('active')
-        }
-        this.classList.add('active')
-        productCategory = this.getAttribute("category-id")
-        console.log(productCategory)
-    }  
-}
-
-form.addEventListener("submit", (event) => {
-    const errors = [];
+form.addEventListener("submit", function (e) {
+    console.log(form, "registro capturado");
+    let errores = []; 
     
-    resetErrorTip()
-
-    errorsElement.innerHTML = '';
-    if(name.value.trim().length < 3) {
-        errors.push('El nombre debe tener más de 3 caracteres.')
+    //Validaciones Nombre
+    if (name.value == "") {
+      errores.push("El nombre es obligatorio");
     }
-   
-    if(price.value.trim().length <= 0){
-        errors.push('Ingresá el valor del producto.')
+    if (name.value < 3) {
+      errores.push("El nombre debe tener más de 3 caracteres");
+    }
+    
+    //Validaciones Precio
+    if (price.value == "") {
+      errores.push("El precio es obligatorio");
+    }
+    if (price.value < 2) {
+      errores.push("El precio debe tener al menos 2 caracteres");
     } 
+    
   
-    if (productCategory == ""){
-        errors.push('Debe seleccionar al menos una categoría de producto.')
-        window.alert("Seleccioná qué tipo de producto vas a cargar.");
+    if (description.value < 3) {
+        errores.push("La descripción debe tener más de 10 caracteres");
+      }
+  
+    
+  
+    if (errores.length > 0) {
+      e.preventDefault();
     }
-    if (image.value == "") {
-        errors.push('Debe cargar la imagen del producto.');
-    } else {
-        const ext = this.image.files[0].type;
-        if(!(ext == "image/jpeg" || ext == "image/png" || ext == "image/csv" || ext == "image/jpg")){
-            errors.push('La imagen tiene una extensión inválida.');
-        }
+    console.log(errores, "contador de errores");
+    let ulErrores = document.querySelector("div.errores ul");
+    for (let i = 0; i < errores.length; i++) {
+      ulErrores.innerHTML += "<li>" + errores[i] + "</li>";
     }
-    if (errors.length) {
-        for (const error of errors) {
-            errorsElement.innerHTML += `<li>${error}</li>`;
-        }
-        event.preventDefault();
-    }
-
-})
+  });
+});

@@ -1,5 +1,5 @@
 const { body } = require('express-validator');
-const {User}= require('../../database/models/products');
+const db = require('../../database/models');
 const path = require('path')
 
 module.exports = {

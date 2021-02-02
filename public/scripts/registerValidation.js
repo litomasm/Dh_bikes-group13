@@ -9,8 +9,8 @@ const email = document.querySelector('#mail');
 const password = document.querySelector('#password3');
 const image = document.querySelector('#avatar');
 
-formRegister.addEventListener("submit", function (e) {
-    console.log(formRegister, "registro capturado");
+form.addEventListener("submit", function (e) {
+    console.log(form, "registro capturado");
     let errores = []; 
     
     //Validaciones Nombre
