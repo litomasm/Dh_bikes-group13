@@ -41,7 +41,7 @@ const {check, validationResult, body} = require('express-validator')
     detail: async (req, res) => {
         const id = req.params.id;
         const product = await db.Product.findByPk(id, {
-            include: ["categories"]
+            include: ["category"]
         })
         
         res.render("producto", {product});
@@ -96,8 +96,14 @@ const {check, validationResult, body} = require('express-validator')
     guardado: async (req, res, next) => {
         let errors = validationResult(req);
         if (!errors.isEmpty()){
-            res.render('productoCreate', {errors: errors.errors})
+           let categories = await db.Category.findAll()
+               
+                    return res.render("productoCreate", {categories : categories, errors: errors.errors});
+                
+            
         } else {
+
+
 
         const newProduct={ 
             name: req.body.name,

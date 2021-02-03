@@ -18,7 +18,7 @@
         </div>
         <div class="formRegistroProducto">
             <form class="formRegistroProducto2" action="/producto/create" method="POST" enctype="multipart/form-data">
-                <div>
+                <div class="nombreDelProducto">
                     <ul class="errors"></ul>
                     <% if (typeof errors != "undefined") { %>
 							
@@ -28,6 +28,7 @@
                         <% }) %>
         
                     <% } %>
+                    <br>
                 </div>
                 
                 <div>

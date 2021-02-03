@@ -25,8 +25,8 @@ form.addEventListener("submit", function (e) {
     if (price.value == "") {
       errores.push("El precio es obligatorio");
     }
-    if (price.value < 2) {
-      errores.push("El precio debe tener al menos 2 caracteres");
+    if (price.value < 5) {
+      errores.push("El precio debe tener al menos 5 caracteres");
     } 
     
   

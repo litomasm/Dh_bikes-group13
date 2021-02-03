@@ -6,20 +6,20 @@ module.exports = {
     registro: [
         body("name")
         .notEmpty()
-        .withMessage("Debes completar este campo")
+        .withMessage("Debes ingresar un nombre para el producto")
         .bail()
-        .isLength({min:5})
-        .withMessage("El nombre debe ser de al menos 5 caracteres"),
+        .isLength({min:9})
+        .withMessage("El nombre debe ser de al menos 9 caracteres"),
     body("price")
         .notEmpty()
-        .withMessage("Debes completar este campo")
+        .withMessage("El producto debe tener un precio")
         .bail()
         .isInt()
         .withMessage("El producto debe tener un precio"),
    
     body("description")
         .notEmpty()
-        .withMessage("Debes completar este campo.")
+        .withMessage("Debes completar una descripción")
         .bail()
         .isLength({ min:20 })
         .withMessage("La descripción debe tener más de 20 caracteres"),
@@ -37,7 +37,7 @@ module.exports = {
         .withMessage ("Formato de imagen Inválido")
         .bail()
         .custom((valueImg, { req }) => req.files[0])
-        .withMessage('Debes cargar una imagen.')
+        .withMessage('Debes cargar una foto del producto')
 
     ],
     
