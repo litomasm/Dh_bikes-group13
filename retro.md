@@ -16,3 +16,8 @@ En esta ocasión los que ingresan a nuestra página se pueden registar para post
 SPRINT 6
 
 Para este print, logramos implementar todo lo que aprendimos de Sequelizer y del manejo de bases de datos con MYSQL. En un primer momento realizamos el diagrama de como nos imaginabamos los cuadros y las relaciones para despues poder implementarlos correctamente. A su vez, ya agregamos todas las funcionalidades para agregar, eliminiar y editar cualquier producto y/o usuario. 
+
+
+SPRINT 7
+
+Ya en esta entrega se implemento las validaciones tanto el Front-End como en el Back-End haciendo un sitio web mas robusto en cuanto a seguridad

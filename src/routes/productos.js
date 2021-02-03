@@ -34,8 +34,8 @@ router.post('/create',  upload.any(), productValidator.registro, productosContro
 router.get('/detail/:id/', productosController.detail); // http://localhost:3000/products/detail/6
 
 /*** EDIT ONE PRODUCT */
-router.get('/editar/:id', authMiddleware, productosController.editar);
-router.put('/editar/:id', upload.any(), productosController.actualizar);
+router.get('/editar/:id', /*authMiddleware,*/ productosController.editar);
+router.put('/editar/:id', upload.any(), productValidator.edit,productosController.actualizar);
 
 //Filtrar productos
 router.get("/filter", productosController.filter)

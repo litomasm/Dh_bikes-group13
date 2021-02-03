@@ -5,7 +5,7 @@
 <%- include('partials/head') %>
 
 <body>
-    <%-include("./partials/header")%>
+    <%-include("./partials/header",{userId:id})%>
 <br>
 <br>
     <main class="registroProduct">
@@ -20,13 +20,24 @@
             <form class="formRegistroProducto2" action="/producto/editar/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div>
                     <div>
+                        <ul class="errors"></ul>
+                    </div>
+                    <% if (typeof errors != "undefined") { %>
+							
+                        <% errors.forEach(error => { %>
+                         
+                            <p><%= error.msg %> </p>
+                        <% }) %>
+        
+                    <% } %>
+                    <div>
                         <label class="nombreDelProducto" for="name" class="form-label">Nombre del producto:</label><br>
                         <input class="nombreDelProducto" type="text" id="name" name="name" placeholder="Ej: Bicicleta Vairo" value="<%= product.name %>">
                     </div>
                     <br>
                     <br>
                     <div>
-                        <label class="precioDelProducto" for="price" class="form-label">Precio del producto:</label><br>
+                        <label class="precioDelProducto form-label" for="price">Precio del producto:</label><br>
                         <input class="precioDelProducto" type="text" id="price" name="price" placeholder="Ej: $64.000" value="<%= product.price %>">
                     </div>
                     <br>
@@ -34,19 +45,17 @@
                         <div>
                         <label class= "categoria" for="category" class="form-label">Categoría:</label>
                         <select name="category" id="category" class="form-input" >
-                            <% for (let i=0; i<categories.length; i++) { %>
-                                <% if (categories[i].id == product.categories_id) { %>
-                                    <option value="<%=categorys[i].id %>" >
+                            <% for (let i=-1; i<categories.length; i++) { %>
+                                <% if(i == -1) {%>
+                                    <option value= 0 >
+                                        seleccionar
+                                    </option>
+                                <% } else if (categories[i].id) {%>  
+                                    <option value="<%= categories[i].id %>" >
                                         <%=categories[i].name%>
                                     </option>
-
-                                <% } else { %>
-                                    <option value="<%=categories[i].id %>">
-                                        <%=categories[i].name%>
-                                    </option>
-                                    <%}  %>  
-                            
                                 <% } %>
+                            <% } %>
                         </select>
                     </div>
                     <br>
@@ -64,12 +73,12 @@
                     <br>
                     <br>
                     <div class="productDescripcion">
-                        <label for="description" class="form-label">Información adicional:</label><br>
-                        <textarea name="information" id="description" placeholder="" cols="50" rows="10"><%= product.information %></textarea>
+                        <label for="information" class="form-label">Información adicional:</label><br>
+                        <textarea name="information" id="information" placeholder="" cols="50" rows="10"><%= product.information %></textarea>
                     </div>
                     <br>
                     <div>
-                        <button class="botonguardarproducto" type="submit" class="buy-now-button">Actualizar producto</button>
+                        <button class="botonguardarproducto" type="button" class="buy-now-button">Actualizar producto</button>
                     </div>
                 </div>
             </form>
@@ -77,9 +86,7 @@
 
     </div>
 </main>
-
-
-    <%-include("./partials/footer")%>
-
+<%-include("./partials/footer")%>
+<script src="/scripts/productEdit.js"></script>
 </body>
 </html>
