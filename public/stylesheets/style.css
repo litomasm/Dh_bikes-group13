@@ -423,6 +423,13 @@ h3{
   display: flex;
   flex-flow: row wrap;
 }
+.create{
+  background-color: #34495E;
+  border-radius: 10px 10px 10px 10px;
+  color: #B7950B;
+  width: 130px;
+  height:35px;
+}
 
 .delete{
   

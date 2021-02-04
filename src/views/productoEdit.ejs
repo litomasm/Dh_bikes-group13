@@ -9,7 +9,7 @@
 <br>
 <br>
     <main class="registroProduct">
-
+       
     <div>
         <div>
             <div>
@@ -45,15 +45,15 @@
                         <div>
                         <label class= "categoria" for="category" class="form-label">Categoría:</label>
                         <select name="category" id="category" class="form-input" >
-                            <% for (let i=-1; i<categories.length; i++) { %>
-                                <% if(i == -1) {%>
-                                    <option value= 0 >
-                                        seleccionar
-                                    </option>
-                                <% } else if (categories[i].id) {%>  
-                                    <option value="<%= categories[i].id %>" >
+                            <% for (let i=0; i<categories.length; i++) { %>
+                                <% if(categories[i].id  == product.category_id) {%> 
+                                    <option value="<%= categories[i].id %>" selected>
                                         <%=categories[i].name%>
                                     </option>
+                                    <% } else { %>
+                                        <option value="<%= categories[i].id %>" >
+                                            <%=categories[i].name%>
+                                        </option>
                                 <% } %>
                             <% } %>
                         </select>
@@ -62,7 +62,7 @@
                     <br>
                     <div class="fotoProducto">
                         <label for="image" class="form-label">Foto del producto:</label> <br>
-                        <input type="file" name="image" id="image">
+                        <input type="file" name="image" id="image" accept="image/jpg, image/jpeg, image/pgn, image/gif">
                     </div>
                     <br>
                     <br>
