@@ -12,7 +12,11 @@
         
             <h2>Formulario de Registro</h2>
             <div class="formregistro">
+                
                 <form class="formregister" action="/user/registro" method="POST" enctype="multipart/form-data">
+                    <div class="errores">
+                        <ul></ul>
+                      </div>
                     <ul class="errors"></ul>
                     <% if (typeof errors != "undefined") { %>
 							

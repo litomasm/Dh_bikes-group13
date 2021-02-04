@@ -30,7 +30,7 @@ const upload = multer({ storage: storage })
 let db = require("../../database/models");
 
 router.get('/login', guestMiddleware,userController.login);
-router.post('/login', guestMiddleware, userController.ingresoUsuario);
+router.post('/login', guestMiddleware, validator.login, userController.ingresoUsuario);
 
 router.get('/registro', guestMiddleware,userController.registro);
 router.post('/registro',   upload.any(), validator.registro, userController.store);
