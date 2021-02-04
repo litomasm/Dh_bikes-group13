@@ -15,12 +15,14 @@ form.addEventListener("submit", function (e) {
     if (password.value == "") {
       errores.push("La contraseña es obligatoria");
     }
-    if (password.value < 6) {
-      errores.push("La contraseña debe tener más de 6 caracteres");
+    if (password.value.length < 8) {
+      console.log(password.value);
+      errores.push("La contraseña debe tener más de 8 caracteres");
     }
 
     //Validaciones Email
         if (email.value == "") {
+          console.log(password.value);
             errores.push("El email es obligatorio");
           }
   

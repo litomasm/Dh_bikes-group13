@@ -59,7 +59,7 @@ const userController = {
             avatar: req.files[0] ? req.files[0].filename : '',
             
         })
-            res.redirect("/");
+        res.render("login");
 
           
         },
