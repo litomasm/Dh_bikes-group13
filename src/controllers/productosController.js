@@ -198,6 +198,7 @@ const {check, validationResult, body} = require('express-validator')
             await db.Product.update({
                 name: req.body.name,
                 price: req.body.price,
+                category_id:req.body.category,
                 image: req.files[0] ? req.files[0].filename : product.image,
                 description: req.body.description,
                 information: req.body.information,
