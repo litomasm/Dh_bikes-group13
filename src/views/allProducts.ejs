@@ -35,13 +35,11 @@
 		</div>
 	</div>
 	
+	<% if(typeof id != "undefined" ) {%> 
 	<div class='cajabotonEditYDeleted'>
-		<br>
-		<button class="action-button delete"> <a href="/producto/create" >CREAR PRODUCTO </a></button>
-		<br>
-		<br>	 
+		<button class="create"> <a href="/producto/create" >CREAR PRODUCTO </a></button>
 	</div>     
-    
+    <% } %>
 </main>
 <%-include("./partials/footer")%>
 </body>

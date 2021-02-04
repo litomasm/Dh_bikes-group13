@@ -45,7 +45,7 @@ module.exports = {
         .notEmpty()
         .withMessage("Debes ingresar un nombre para el producto")
         .bail()
-        .isLength({min:9})
+        .isLength({min:5})
         .withMessage("El nombre debe ser de al menos 9 caracteres"),
          body("price")
         .notEmpty()
@@ -62,6 +62,14 @@ module.exports = {
         .withMessage("La descripción debe tener más de 20 caracteres"),
     
         body("image")
+        .custom((value, {req}) =>{
+            if(req.method == 'PUT') {
+                return true;
+            } 
+            
+            return req.files[0]
+            
+        }).withMessage('La imagen debe ser obligatoria')
         .custom ((value , {req}) => {
             if(req.files[0])
             {
@@ -72,9 +80,6 @@ module.exports = {
             return true;
         })
         .withMessage ("Formato de imagen Inválido")
-        .bail()
-        .custom((valueImg, { req }) => req.files[0])
-        .withMessage('Debes cargar una foto del producto')
     ],
     
         

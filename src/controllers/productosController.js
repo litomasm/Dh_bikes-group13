@@ -163,15 +163,16 @@ const {check, validationResult, body} = require('express-validator')
         }
         
         if(user == undefined){
-            res.render('productoEdit')
+            res.redirect('allProducts')
         } else{
+            
             let pedidoProducto =  db.Product.findByPk(req.params.id);
             let pedidoCategory =  db.Category.findAll();
 
             Promise.all([pedidoProducto, pedidoCategory])
             .then(function([product, categories]){
 
-            res.render("productoEdit", {id:user.id, product:product, categories: categories})
+            res.render("productoEdit", {product:product, categories: categories,id:user.id})
         })
         }
         
@@ -182,12 +183,14 @@ const {check, validationResult, body} = require('express-validator')
        let errors = validationResult(req);
         if (!errors.isEmpty()){
 
+            let user={};
+            user = req.session.user;
             let pedidoProducto =  db.Product.findByPk(req.params.id);
             let pedidoCategory =  db.Category.findAll();
 
             Promise.all([pedidoProducto, pedidoCategory])
             .then(function([product, categories]){
-                res.render('productoEdit', {product: product, categories: categories, errors: errors.errors});
+                res.render('productoEdit', {id:user.id,product: product, categories: categories, errors: errors.errors});
             });
 
         } else {

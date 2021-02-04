@@ -414,20 +414,31 @@ h3{
 .botonEditYDeleted{
   width:100%;
   display:flex;
-  justify-content: center;
-  text-align: right;
-  padding-left: 80%;
+  
 }
 
+.cajabotonEditYDeleted{
+  text-align: center;
+  margin-bottom:10px;
+  display: flex;
+  flex-flow: row wrap;
+}
+.create{
+  background-color: #34495E;
+  border-radius: 10px 10px 10px 10px;
+  color: #B7950B;
+  width: 130px;
+  height:35px;
+}
 
 .delete{
   
   background-color: #34495E;
   border-radius: 10px 10px 10px 10px;
-  size: 20px;
   color: #B7950B;
-  width: 100px;
-  height:30px;
+  width: 130px;
+  height:35px;
+  margin-right: 10px;
   
 }
 
@@ -480,6 +491,8 @@ h3{
 #image-allProduct{
   width:100%;
 }
+
+
 
 .product-box_data {
   padding: 15px;
