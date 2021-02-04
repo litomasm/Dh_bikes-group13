@@ -6,7 +6,7 @@ const name = document.querySelector('#nombre');
 const lastname = document.querySelector('#apellido');
 const email = document.querySelector('#mail');
 const password = document.querySelector('#password3');
-const image = document.querySelector('#avatar');
+const image = document.querySelector('#avatar').value;
 let ulErrores = document.querySelector("div.errores ul");
 
 form.addEventListener("submit", function (e) {
@@ -42,7 +42,17 @@ form.addEventListener("submit", function (e) {
         if (email.value == "") {
             errores.push("El email es obligatorio");
           }
-  
+
+   //Imagen
+   const imageExt = image.split('.')[1];
+   const validExt = ['jpg', 'jpeg', 'png', 'gif'];
+   if (imageExt == undefined) {
+       errores.push('Debe cargar una imagen con uno de los siguientes formatos: JPG, JPEG, PNG, GIF.') ;
+   } else {
+       if (!(validExt.includes(imageExt.toLowerCase()))) {
+           errores.push('Formato de imagen inválido. [Permitidos: JPG, JPEG, PNG, GIF]')
+       }
+   }
     
   
     if (errores.length > 0) {
@@ -50,6 +60,7 @@ form.addEventListener("submit", function (e) {
     }
         
     for (let i = 0; i < errores.length; i++) {
+      
       ulErrores.innerHTML += "<li>" + errores[i] + "</li>";
     }
   });

@@ -3,6 +3,7 @@ const form = document.querySelector('.formRegistroProducto2');
 const name = document.querySelector('input.nombreDelProducto');
 const price = document.querySelector('input.precioDelProducto');
 const category = document.querySelector('select#category');
+const image = document.querySelector('#image').value;
 const description = document.querySelector('#description');
 const info = document.querySelector('#information');
 const button = document.querySelector('.botonguardarproducto')
@@ -35,6 +36,17 @@ button.addEventListener("click", function (e) {
       errores.push("Tiene que seleccionar una categoria");
     }
     
+     //Imagen
+    /* const imageExt = image.split('.')[1];
+     const validExt = ['jpg', 'jpeg', 'png', 'gif'];
+     if (imageExt == undefined) {
+         errores.push('Debe cargar una imagen con uno de los siguientes formatos: JPG, JPEG, PNG, GIF.') ;
+     } else {
+         if (!(validExt.includes(imageExt.toLowerCase()))) {
+             errores.push('Formato de imagen invalido. [Permitidos: JPG, JPEG, PNG, GIF]')
+         }
+     }*/
+
     //Validaciones de Descripcion
     if (description.value.trim().length <= 10) {
         errores.push("La descripción debe tener más de 10 caracteres");
