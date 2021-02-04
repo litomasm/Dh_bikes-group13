@@ -30,8 +30,8 @@ module.exports = {
 			.withMessage('El usuario ya existe'), 
           
         body('password')
-            .isLength({min: 6})
-            .withMessage('La contraseña debe tener al menos 6 caracteres'),
+            .isLength({min: 8})
+            .withMessage('La contraseña debe tener al menos 8 caracteres'),
             
         
         body('avatar')
@@ -64,8 +64,8 @@ module.exports = {
             }),
             
         body('password')
-            .isLength({min: 6})
-            .withMessage('La contraseña debe tener al menos 6 caracteres')
+            .isLength({min: 8})
+            .withMessage('La contraseña debe tener al menos 8 caracteres')
             
     ]
     
