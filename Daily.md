@@ -29,3 +29,7 @@ WEEKLY-SPRINT 6
 Para esta entrega nuevamente nos organizamos entre los 3 para poder completar con todos los pasos. Antes que nada, corregir los 3 puntos del sprint anterior que teniamos que mejorar. En segundo lugar, avanzar con los nuevos puntos. 
 Realizamos varias llamadas y videollamadas para repartirnos los puntos e ir solucionandolos, ademas de utilizar los colerning para solucionar dudas. 
 Seguimos trabajando en equipo y ordenadamente manteniendo la comunicación fulida para que cada uno sepa en que esta trabajando el otro. Ante cualquier problema, nos organizamos rapidamente para solucionarlo cuanto antes y continuar avanzando.
+
+WEEKLY-SPRINT 7
+En esta ocasion la dinamica que utilizamos fue igual a los sprints anteriores. Hablamos y nos dividimos las correcciones y las tareas para este sprint. 
+Hicimos llamadas via zoom para poder trabajar y solucionar algunos problemas que estabamos encontrando en el código. De esta manera pudimos resolver todos los inconvenientes que nos fueron apareciendo. 
