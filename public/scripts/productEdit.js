@@ -3,6 +3,7 @@ const form = document.querySelector('.formRegistroProducto2');
 const name = document.querySelector('input.nombreDelProducto');
 const price = document.querySelector('input.precioDelProducto');
 const category = document.querySelector('select#category');
+const image = document.querySelector('#image')
 const description = document.querySelector('#description');
 const info = document.querySelector('#information');
 const button = document.querySelector('.botonguardarproducto')
@@ -34,7 +35,7 @@ button.addEventListener("click", function (e) {
     if(category.value == 0){
       errores.push("Tiene que seleccionar una categoria");
     }
-    
+
     //Validaciones de Descripcion
     if (description.value.trim().length <= 10) {
         errores.push("La descripción debe tener más de 10 caracteres");
@@ -60,7 +61,7 @@ button.addEventListener("click", function (e) {
       errors.innerHTML += "<li style='position:static;margin-bottom:5px'>" + errores[i] + "</li>";
     }
 
-   
+  
     if(!(errores.length)){
         form.submit()
     }
