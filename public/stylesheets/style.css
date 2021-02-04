@@ -134,7 +134,9 @@ ul li{
 
 .fa-search{
   margin-left: 5px;
-  
+  color: #B7950B;
+  background-color: #34495E ;
+  padding: 4px;
 }
 
 .menu a{

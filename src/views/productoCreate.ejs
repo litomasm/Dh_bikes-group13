@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="formRegistroProducto">
-            <form class="formRegistroProducto2" action="/producto/create" method="POST" enctype="multipart/form-data">
+            <form id="formReg" class="formRegistroProducto2" action="/producto/create" method="POST" enctype="multipart/form-data">
                 <div class="nombreDelProducto">
                     <ul class="errors"></ul>
                     <% if (typeof errors != "undefined") { %>
@@ -60,7 +60,7 @@
                     <br>
                     <div class="fotoProducto">
                         <label for="image" class="form-label">Foto del producto:</label> <br>
-                        <input type="file" name="image" id="image">
+                        <input type="file" name="image" id="imageProduct">
                     </div>
                     <br>
                     <br>
@@ -76,7 +76,7 @@
                     </div>
                     <br>
                     <div>
-                        <button class="botonguardarproducto" type="submit" class="buy-now-button">Guardar producto</button>
+                        <button id="botonCrear" class="botonguardarproducto" type="submit" class="buy-now-button">Guardar producto</button>
                     </div>
                 </div>
             </form>
