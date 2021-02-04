@@ -45,7 +45,7 @@ module.exports = {
         .withMessage('Formato incorrecto'),
         
     ],
-    login:
+    login: [
         body('email')
         .notEmpty()
         .withMessage('El campo email es obligatorio')
@@ -61,7 +61,12 @@ module.exports = {
                     return Promise.reject("El email y contraseña no coinciden");
                 }
             })
-        })
-        
+            }),
+            
+        body('password')
+            .isLength({min: 6})
+            .withMessage('La contraseña debe tener al menos 6 caracteres')
+            
+    ]
     
 }
