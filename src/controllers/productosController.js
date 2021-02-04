@@ -32,19 +32,53 @@ const {check, validationResult, body} = require('express-validator')
  const productosController  = {
     // Root - Show all products
     list: (req, res, next) => {
-        db.Product.findAll().then((products)=>{
-            res.render("allProducts", {products})
-        })
+        let user={};
+        if(req.session.user){
+            user = req.session.user;
+        }
+        
+        if(user == undefined){
+            db.Product.findAll().then((products)=>{
+                res.render("allProducts", {products})})
+        } else{
+            db.Product.findAll().then((products)=>{
+                res.render("allProducts", {products,id:user.id})})
+        }
+
+           //CHECKEAR ESTE CODIGO PARA COMPRENDER 
+        /*--------------   --------------*/
+        // if(req.session.user){
+        //     db.Product.findAll().then((products)=>{
+        //         res.render("allProducts", {products,id:req.session.user.id})})
+        // } else{
+        //     db.Product.findAll().then((products)=>{
+        //         res.render("allProducts", {products})})
+        // }
+        /*--------------   --------------*/
     },
 
     
     detail: async (req, res) => {
-        const id = req.params.id;
-        const product = await db.Product.findByPk(id, {
-            include: ["category"]
-        })
+        let user={};
+        if(req.session.user){
+            user = req.session.user;
+        }
         
-        res.render("producto", {product});
+        if(user == undefined){
+            const id = req.params.id;
+            const product = await db.Product.findByPk(id, {
+                include: ["category"]
+            })
+            
+            res.render("producto", {product});
+        } else {
+            const id = req.params.id;
+            const product = await db.Product.findByPk(id, {
+                include: ["category"]
+            })
+            
+            res.render("producto", {product,id:user.id});
+        }
     },
 
     search: async function (req, res){
@@ -88,7 +122,7 @@ const {check, validationResult, body} = require('express-validator')
                 .then(function(categories){
                     return res.render("productoCreate", {categories : categories});
                 }
-                )}
+            )}
        
     },
 
@@ -122,6 +156,7 @@ const {check, validationResult, body} = require('express-validator')
         
     // Update - Form to edit
     editar: (req, res, next) => {
+
         let user={};
         if(req.session.user){
             user = req.session.user;
@@ -136,7 +171,7 @@ const {check, validationResult, body} = require('express-validator')
             Promise.all([pedidoProducto, pedidoCategory])
             .then(function([product, categories]){
 
-            res.render("productoEdit", {product:product, categories: categories})
+            res.render("productoEdit", {id:user.id, product:product, categories: categories})
         })
         }
         
@@ -144,22 +179,33 @@ const {check, validationResult, body} = require('express-validator')
 
     
     actualizar: async (req, res) => {
-       await db.Product.update({
-            name: req.body.name,
-            price: req.body.price,
-            image: req.files[0] ? req.files[0].filename : product.image,
-            description: req.body.description,
-            information: req.body.information,
-        }, {
-            where:{
-                id:req.params.id
-            }
+       let errors = validationResult(req);
+        if (!errors.isEmpty()){
 
-        })
+            let pedidoProducto =  db.Product.findByPk(req.params.id);
+            let pedidoCategory =  db.Category.findAll();
 
+            Promise.all([pedidoProducto, pedidoCategory])
+            .then(function([product, categories]){
+                res.render('productoEdit', {product: product, categories: categories, errors: errors.errors});
+            });
 
-       
-        res.redirect("/producto/")
+        } else {
+            
+            await db.Product.update({
+                name: req.body.name,
+                price: req.body.price,
+                image: req.files[0] ? req.files[0].filename : product.image,
+                description: req.body.description,
+                information: req.body.information,
+            }, {
+                where:{
+                    id:req.params.id
+                }
+
+            })
+            res.redirect("/producto/")
+        }
 		
 	},
 

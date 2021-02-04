@@ -27,7 +27,16 @@ const controller = {
     },
 
     contacto: (req, res) => {
-       res.render("comercial/contacto")
+        let user={};
+        if(req.session.user){
+            user = req.session.user;
+        }
+        
+        if(user == undefined){
+            res.render("comercial/contacto")
+        } else{
+            res.render("comercial/contacto",{id:user.id})
+        }
     },
 };
 
