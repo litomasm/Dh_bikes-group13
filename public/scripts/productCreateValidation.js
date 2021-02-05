@@ -3,7 +3,7 @@ const form = document.querySelector('#formReg');
 const name = document.querySelector('#name');
 const price = document.querySelector('#price');
 const category = document.querySelector('select#category');
-const image = document.querySelector('#image').value;
+const image = document.querySelector('#imageProduct');
 const description = document.querySelector('#description');
 const info = document.querySelector('#info');
 const button = document.querySelector('#botonCrear');
@@ -34,15 +34,19 @@ button.addEventListener("click", function (e) {
     }
     
      //Imagen
-    const imageExt = image.split('.')[1];
-        const validExt = ['jpg', 'jpeg', 'png', 'gif'];
+   /* const imageExt = image.split('.')[1];
+    const validExt = ['jpg', 'jpeg', 'png', 'gif'];
         if (imageExt == undefined) {
             errores.push('Debe cargar una imagen con uno de los siguientes formatos: JPG, JPEG, PNG, GIF.') ;
-        } else {
+        }  else { 
             if (!(validExt.includes(imageExt.toLowerCase()))) {
                 errores.push('Formato de imagen invalido. [Permitidos: JPG, JPEG, PNG, GIF]')
-            }
-        }
+            }*/
+
+            if (image.value == "") {
+              errores.push('Debe cargar la imagen del producto.');
+          }
+        
 
     //Validaciones de Descripción
   

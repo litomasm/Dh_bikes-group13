@@ -6,7 +6,7 @@ const name = document.querySelector('#nombre');
 const lastname = document.querySelector('#apellido');
 const email = document.querySelector('#mail');
 const password = document.querySelector('#password3');
-const image = document.querySelector('#avatar').value;
+const image = document.querySelector('#avatar');
 let ulErrores = document.querySelector("div.errores ul");
 
 form.addEventListener("submit", function (e) {
@@ -17,16 +17,16 @@ form.addEventListener("submit", function (e) {
     if (name.value == "") {
       errores.push("El nombre es obligatorio");
     }
-    if (name.value.length < 2) {
-      errores.push("El nombre debe tener más de 2 caracteres");
+    if (name.value.length < 3) {
+      errores.push("El nombre debe tener más de 3 caracteres");
     }
     
     //Validaciones Apellido
     if (lastname.value == "") {
       errores.push("El apellido es obligatorio");
     }
-    if (lastname.value.length < 2) {
-      errores.push("El apellido debe tener al menos 2 caracteres");
+    if (lastname.value.length < 3) {
+      errores.push("El apellido debe tener al menos 3 caracteres");
     } 
     
   
@@ -44,7 +44,7 @@ form.addEventListener("submit", function (e) {
           }
 
    //Imagen
-   const imageExt = image.split('.')[1];
+  /* const imageExt = image.split('.')[1];
    const validExt = ['jpg', 'jpeg', 'png', 'gif'];
    if (imageExt == undefined) {
        errores.push('Debe cargar una imagen con uno de los siguientes formatos: JPG, JPEG, PNG, GIF.') ;
@@ -52,7 +52,11 @@ form.addEventListener("submit", function (e) {
        if (!(validExt.includes(imageExt.toLowerCase()))) {
            errores.push('Formato de imagen inválido. [Permitidos: JPG, JPEG, PNG, GIF]')
        }
-   }
+   }*/
+
+   if (image.value == "") {
+    errores.push('Debe cargar una foto de perfil');
+ }
     
   
     if (errores.length > 0) {
