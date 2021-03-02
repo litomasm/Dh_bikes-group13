@@ -4,10 +4,10 @@ const name = document.querySelector('input.nombreDelProducto');
 const price = document.querySelector('input.precioDelProducto');
 const category = document.querySelector('select#category');
 
-const image = document.querySelector('#image').value;
+const image = document.querySelector('#productImage');
 
 const description = document.querySelector('#description');
-const info = document.querySelector('#information');
+const info = document.querySelector('#info');
 const button = document.querySelector('.botonguardarproducto')
 const errors = document.querySelector('ul.errors');
 
@@ -58,7 +58,7 @@ button.addEventListener("click", function (e) {
 
          
     //Validaciones de Informacion
-    if (information.value.trim().length <= 10) {
+    if (info.value.trim().length <= 10) {
         errores.push("La informacion debe tener más de 10 caracteres");
       }
    
@@ -74,6 +74,28 @@ button.addEventListener("click", function (e) {
       errors.style.margin = '0px';  
       errors.style.padding = '0px';   
       errors.innerHTML += "<li style='position:static;margin-bottom:5px'>" + errores[i] + "</li>";
+
+      name.style.borderColor = '#ccc';
+      if(name.value == "" || name.value.length < 3){
+        name.style.borderColor = 'red';
+      }
+
+      price.style.borderColor = '#ccc';
+      if(price.value == "" || price.value.length < 3){
+        price.style.borderColor = 'red';
+      }
+      category.style.borderColor = '#ccc';
+      if(category.value == 0){
+        category.style.borderColor = 'red';
+      }
+      description.style.borderColor = '#ccc';
+      if(description.value.trim().length <= 10){
+        description.style.borderColor = 'red';
+      }
+      info.style.borderColor = '#ccc';
+      if (info.value.trim().length <= 10) {
+        info.style.borderColor = 'red';
+      }
     }
 
   

@@ -38,7 +38,7 @@ const userController = {
         if (!errors.isEmpty()){
             console.log("2")
             res.render('registro', {errors: errors.errors});
-        } 
+        } else {
         
         await db.User.create({
 			name: req.body.name,
@@ -50,20 +50,17 @@ const userController = {
             
         }).catch(error => console.log(error));
         
-        console.log({
-			name: req.body.name,
-			last_name: req.body.last_name,
-			email: req.body.email,
-			password: bcryptjs.hashSync(req.body.password, 5),
-			/* avatar: req.files[0].filename, */
-            avatar: req.files[0] ? req.files[0].filename : '',
-            
-        })
+            console.log({
+                name: req.body.name,
+                last_name: req.body.last_name,
+                email: req.body.email,
+                password: bcryptjs.hashSync(req.body.password, 5),
+                /* avatar: req.files[0].filename, */
+                avatar: req.files[0] ? req.files[0].filename : '',
+            })
         res.render("login");
-
-          
-        },
-     
+        }
+    },
 
     login: (req, res) => {
         res.render("login");

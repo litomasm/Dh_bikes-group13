@@ -11,43 +11,54 @@
     <section id="producto">
         <div class='fotoProductoBici'>
             <article class="foto">
-        <img  src="/images/products/<%= product.image %>" alt="Futura Futy" width="85%" height="100%" title="Futura Futy">
+                <img class='img-foto-producto' src="/images/products/<%= product.image %>" alt="Futura Futy" title="Futura Futy">
             </article>
         </div>
-        <div>
+        <div class='caja-info-producto'>
             <article id="productoInfo">
                 <h2 id="nombreProducto"><%= product.name%></h2>
                 <p class="precio">$ <%= product.price %></p>
                 <br>
                 <br>
-                <p id="cantidadDisponible">3 disponibles</p>
+                <div class="caja-categoria-producto-ejs"> 
+                    <h4 class="tituloCategoriaProducto">Categoría: </h4>
+                    <p class="ParrafoCategoriaProducto">
+                       <%= product.category.name%>
+                    </p>
+                </div>
+                <br>
+                <br>
+                <% let x = 0%>
+                <% for(let i = 0; i < products.length; i++){ %>
+                    <% if(product.name == products[i].name) {%>
+                        <% x++ %>
+                    <% } %>
+                <% } %>
+                <% if( x == 1) { %>
+                    <p id="cantidadDisponible"><%= x %> disponible</p>
+                <% } else {%>
+                    <p id="cantidadDisponible"><%= x %> disponibles</p>
+                <% } %>
                 <a href="carrito"><button  id="botonAnadir" type="button">Añadir al carrito</button></a>
                 <br>
                 <br>
                 <p id="cuotasDisponibles">12 cuotas de $ <%= product.price / 12 %> </p>
-            </article> 
+            </article>
+             
         </div>
         <div id="infoDescrip-Adicional">
             <div id="descripcionProducto">
-               <h4 class="tituloDescripcionInfo" >Descripcion del producto</h4> <br>
-                <p class="descripcionParrafo"><%= product.description %></p>
-                
-                <br>
+                <div class='caja-descripcion-producto-ejs'>
+                    <h4 class="tituloDescripcionInfo" >Descripcion del producto</h4> <br>
+                    <p class="descripcionParrafo"><%= product.description %></p>
+                    <br>
+                </div>
             </div>
-                    
             <div class="infoAdicional"> 
-                <h4 class="tituloDescripcionInfo">Categoría</h4><br>
-                <p class="descripcionParrafo">
-                   <%= product.category.name%>
-                </p>
-                
-            </div>
-
-            <div class="infoAdicional"> 
-                <h4 class="tituloDescripcionInfo">Información Adicional</h4><br>
-                <p class="descripcionParrafo">
-                    <%= product.information%>
-                </p>
+                <div class='caja-infoAdic-producto-ejs'>
+                    <h4 class="tituloDescripcionInfo">Información Adicional</h4><br>
+                    <p class="descripcionParrafo"><%= product.information%></p>
+                </div>
             </div>    
             
             </div>

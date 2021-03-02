@@ -22,35 +22,34 @@
                           <% if (typeof errors != "undefined" && errors[0].msg=='Credenciales invalidas') { %>    
                                 <p class="parrafo-errors-p"><%= errors[0].msg%></p>
                           <% } %>  
+                          <label for="correo">Correo Electrónico *</label> <br>
+                          <input type="email" id="email" name="email">
+                          <% if (typeof errors != "undefined") { %>    
+                              <% for(let i=0; i < errors.length; i++) { %>  
+                                <% if(errors[i].param=="email") { %>
+                                  <p class="parrafo-errors-p"><%= errors[i].msg%></p>
+                                <% } %>
+                              <% } %>
+                            <% } %>  
                           <br>
-                            <label for="correo">Correo Electrónico *</label> <br>
-                            <input type="email" id="email" name="email">
-                            <% if (typeof errors != "undefined") { %>    
-                                <% for(let i=0; i < errors.length; i++) { %>  
-                                  <% if(errors[i].param=="email") { %>
-                                    <p class="parrafo-errors-p"><%= errors[i].msg%></p>
-                                  <% } %>
+                          <label for="correo">Contraseña *</label> <br>
+                          <input type="password" id="password" name="password">
+                          <% if (typeof errors != "undefined") { %>    
+                              <% for(let i=0; i < errors.length; i++) { %>  
+                                <% if(errors[i].param=="password") { %>
+                                  <p class="parrafo-errors-p"><%= errors[i].msg%></p>
                                 <% } %>
-                              <% } %>  
-                            <br><br>
-                            <label for="correo">Contraseña *</label> <br>
-                            <input type="password" id="password" name="password">
-                            <% if (typeof errors != "undefined") { %>    
-                                <% for(let i=0; i < errors.length; i++) { %>  
-                                  <% if(errors[i].param=="password") { %>
-                                    <p class="parrafo-errors-p"><%= errors[i].msg%></p>
-                                  <% } %>
-                                <% } %>
-                              <% } %>  <br>
+                              <% } %>
+                            <% } %>  <br>
                         </article>
                     </div>
                     <article id="campos">
                         <p>*Campos Requeridos</p>
                     </article>
-                    <article id="olvidar"><a href="#"><p>¿Olvidaste tu contraseña?</p></a>
-                    </article> <br>
+                    <article id="olvidar"><a href="#"><p>¿Olvidaste tu contraseña?</p></a></article>
+                    <br>
                     <p id="recordar"><input type="checkbox" name="recordarme" id="recordarme"> Recordarme</p>
-                    <a href="#"><button id="botoniniciar"type="submit">Iniciar Sesión</button></a>
+                    <button id="botoniniciar"type="submit">Iniciar Sesión</button>
                 </form>
             </div>
         </main>

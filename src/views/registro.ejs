@@ -12,19 +12,15 @@
         
             <h2>Formulario de Registro</h2>
             <div class="formregistro">
-                
                 <form class="formregister" id="formregister" action="/user/registro" method="POST" enctype="multipart/form-data">
                     <div class="errores">
                         <ul></ul>
-                      </div>
+                    </div>
                     <ul class="errors"></ul>
                     <% if (typeof errors != "undefined") { %>
-							
-                        <% errors.forEach(error => { %>
-                         
+						<% errors.forEach(error => { %>
                             <p><%= error.msg %> </p>
                         <% }) %>
-        
                     <% } %>
                     <div>
                         <article id="nombreregistro">
@@ -41,7 +37,7 @@
                             <label for="apellido">Apellido *</label> <br>
                             <input type="text" id="apellido" name="last_name" >
                             
-                            <br><br>
+                            <br>
                         </article>
                     </div>
                    <!--  <small>
@@ -49,8 +45,8 @@
                     </small> -->
                     <div>
                         <article id="primeritem">
-                            <label for="correo">Correo Electrónico *</label> <br>
-                            <input type="email" id="mail" name="email" >
+                            <label for="email">Correo Electrónico *</label> <br>
+                            <input type="email" id="email" name="email" >
                             <!-- <small>
                                 <%= typeof errors === 'undefined' ? '' : errors.email ? errors.email.msg : '' %>
                             </small>-->
@@ -61,13 +57,14 @@
                            <!--<label for="correo">Confirma Contraseña *</label> <br>
                             <input type="password" id="password4" name="password"><br>--> 
                            
-                              <br><br>  
+                            <br><br>  
                         </article>
                        <!-- <small>
                             <%= typeof errors === 'undefined' ? '' : errors.password ? errors.password.msg : '' %>
                         </small>-->
                         <div >
                             <article>
+                                <label for="avatar"><i style='color: #a2b2c2;' class="fas fa-cloud-upload-alt"></i> Seleccionar Archivo</label>
                                 <input type="file" id= "avatar" name='avatar' class='estilo-boton-archivo'>
                                
                                 <br><br>
@@ -88,15 +85,12 @@
                     <div>
                         <article id="campos">
                             <p>*Campos Requeridos</p>
-                            </article>
                             <p id="suscribir"><input type="checkbox" name="suscribir" id="suscribir"> Suscribite para recibir novedades y promociones </p>
-                            
-                        </article> <br>
+                        </article>
                     </div>
-                    
-                    
-                
-                    <a href="#"><button id="botonregistro" type="submit">Registrarse</button></a>
+                    <div>
+                        <button id="botonregistro" type="submit">Registrarse</button>
+                    </div>
                 
                 </form>
 

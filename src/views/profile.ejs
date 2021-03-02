@@ -5,37 +5,27 @@
 
     <body>
         <%-include("./partials/header",{userId:id})%>
-        <br>
-        <br>
-        <main class="mainregistro">
-            <h2>Mi Perfil</h2>
-            <div class= "fotoProfile">
-                <article class="foto">
-                    <img  src="/images//users/<%= image %>" alt="fotoDelUsuario" width="85%" height="100%" title="fotoDelUsuario">
+        <main class="mainPerfil">
+            <h2 class='tituloMiPerfil'>Mi Perfil</h2>
+            <div class= "cajaFotoProfile">
+                <article class="fotoProfile">
+                    <img  src="/images//users/<%= image %>" alt="fotoDelUsuario" title="fotoDelUsuario">
                 </article>
             </div>
-
-            <div class="nombreymail">
+            <div class="nombreYMailPerfil">
                 <h2> ¡Hola <%= nombre %> <%= apellido %>! </h2> <br>
-                
                 <h2> <%= email %></h2> <br>
 
-               <form class="formregister" action="/user/profile" method="POST">
-                     
-                    <a href="#"><button class="action-button delete" id="logout" type="submit">Cerrar Sesión</button></a> 
-            </div>
-
-            <div class='cajabotonEditYDeleted'>
+                <form class="formregister" action="/user/profile" method="POST">
+                    <a href="#"><button class="action-button delete" id="logout" type="submit">Cerrar Sesión</button></a>
+                </form>
                 <br>
-                <button class="action-button delete"> <a href="/producto/create" >CREAR PRODUCTO </a></button>
-                     
-            </div>     
-            
-           
-            
+                <div class='cajabotonEditYDeleted'>
+                    <button class="action-button delete"> <a href="/producto/create" >CREAR PRODUCTO </a></button>
+                </div>    
+            </div>
+             
         </main>
-<br>
         <%-include("./partials/footer")%>
-
     </body>
 </html>
