@@ -38,10 +38,12 @@
             <a href="/contacto" id="contacto">Contacto  |</a> 
             <a href="#" id="nosotros">Sobre Nosotros</a><br> 
             
-            <form action="/producto/search" method="GET" >
+            <form action="/producto/search" method="GET" class='caja-form-seach' >
                
                 <input id="busqueda" name="search" type="text" placeholder="Buscá la bicicleta o accesorio que necesitás">
-                <button id="buscador" class="fas fa-search"></button>
+                <button id="buscador" type="submit">
+                    <div class="fas fa-search"></div>
+                </button>
                
             </form>
 
@@ -51,8 +53,9 @@
             
         
 
-        <div id="carrito">                
-            <a href="/carrito"><i class="fas fa-shopping-cart"></i>Carrito</a>
+        <div id="caja-carrito">    
+            <a href="/carrito"  ><button id="boton-carrito"><i class="fas fa-shopping-cart"></i>Carrito</button></a>           
+           
         </div>
     </div>
 </header> 

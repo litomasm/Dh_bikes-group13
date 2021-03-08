@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+let db = require("../../database/models");
+const { Op } = require("sequelize");
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -12,9 +14,22 @@ const controller = {
         }
         
         if(user == undefined){
-            res.render("index.ejs")
+            let pedidoProducto =  db.Product.findAll();
+            let pedidoCategory =  db.Category.findAll();
+
+            Promise.all([pedidoProducto, pedidoCategory])
+            .then(function([product, categories]){
+                res.render("index", {products:product, categories: categories,id:user.id})
+            })
+           
         } else{
-            res.render("index.ejs",{id:user.id})
+            let pedidoProducto =  db.Product.findAll();
+            let pedidoCategory =  db.Category.findAll();
+
+            Promise.all([pedidoProducto, pedidoCategory])
+            .then(function([products, categories]){
+                res.render("index", {id:user.id,products:products, categories: categories,id:user.id})
+            })
         }
        
       

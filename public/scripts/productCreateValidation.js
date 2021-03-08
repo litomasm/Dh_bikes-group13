@@ -1,16 +1,16 @@
 const form = document.querySelector('#formReg');
-
 const name = document.querySelector('#name');
 const price = document.querySelector('#price');
 const category = document.querySelector('select#category');
-const image = document.querySelector('#imageProduct');
+const image = document.querySelector('#productImage');
 const description = document.querySelector('#description');
 const info = document.querySelector('#info');
 const button = document.querySelector('#botonCrear');
 const errors = document.querySelector('ul.errors');
 
+
 button.addEventListener("click", function (e) {
-    console.log(form, "registro capturado");
+    
     errors.innerHTML = '';
     let errores = []; 
     
@@ -43,11 +43,10 @@ button.addEventListener("click", function (e) {
                 errores.push('Formato de imagen invalido. [Permitidos: JPG, JPEG, PNG, GIF]')
             }*/
 
-            if (image.value == "") {
-              errores.push('Debe cargar la imagen del producto.');
-          }
-        
-
+    if (image.value == "") {
+      errores.push('Debe cargar la imagen del producto.');
+    }
+    
     //Validaciones de Descripción
   
     if (description.value.trim().length <= 10) {
@@ -70,6 +69,28 @@ button.addEventListener("click", function (e) {
       errors.style.margin = '0px';  
       errors.style.padding = '0px';   
       errors.innerHTML += "<li style='position:static;margin-bottom:5px'>" + errores[i] + "</li>";
+
+      name.style.borderColor = '#ccc';
+      if(name.value == "" || name.value.length < 3){
+        name.style.borderColor = 'red';
+      }
+
+      price.style.borderColor = '#ccc';
+      if(price.value == "" || price.value.length < 3){
+        price.style.borderColor = 'red';
+      }
+      category.style.borderColor = '#ccc';
+      if(category.value == 0){
+        category.style.borderColor = 'red';
+      }
+      description.style.borderColor = '#ccc';
+      if(description.value.trim().length <= 10){
+        description.style.borderColor = 'red';
+      }
+      info.style.borderColor = '#ccc';
+      if (info.value.trim().length <= 10) {
+        info.style.borderColor = 'red';
+      }
     }
 
    

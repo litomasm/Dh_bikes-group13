@@ -39,10 +39,12 @@ const {check, validationResult, body} = require('express-validator')
         
         if(user == undefined){
             db.Product.findAll().then((products)=>{
-                res.render("allProducts", {products})})
+                res.render("allProducts", {products})
+            })
         } else{
             db.Product.findAll().then((products)=>{
-                res.render("allProducts", {products,id:user.id})})
+                res.render("allProducts", {products,id:user.id})
+            })
         }
 
            //CHECKEAR ESTE CODIGO PARA COMPRENDER 
@@ -69,15 +71,17 @@ const {check, validationResult, body} = require('express-validator')
             const product = await db.Product.findByPk(id, {
                 include: ["category"]
             })
+            const products = await db.Product.findAll()
             
-            res.render("producto", {product});
+            res.render("producto", {product,products});
         } else {
             const id = req.params.id;
             const product = await db.Product.findByPk(id, {
                 include: ["category"]
             })
+            const products = await db.Product.findAll()
             
-            res.render("producto", {product,id:user.id});
+            res.render("producto", {product,id:user.id,products});
         }
     },
 
@@ -120,7 +124,7 @@ const {check, validationResult, body} = require('express-validator')
         } else{
                 db.Category.findAll()
                 .then(function(categories){
-                    return res.render("productoCreate", {categories : categories});
+                    return res.render("productoCreate", {id:user.id,categories : categories});
                 }
             )}
        
@@ -130,11 +134,19 @@ const {check, validationResult, body} = require('express-validator')
     guardado: async (req, res, next) => {
         let errors = validationResult(req);
         if (!errors.isEmpty()){
-           let categories = await db.Category.findAll()
-               
-                    return res.render("productoCreate", {categories : categories, errors: errors.errors});
-                
+                     
+            let user={};
+            if(req.session.user){
+                user = req.session.user;
+            }
             
+            if(user == undefined){
+                let categories = await db.Category.findAll()
+                return res.render("productoCreate", {categories : categories, errors: errors.errors});
+            } else{
+                let categories = await db.Category.findAll()
+                return res.render("productoCreate", {id: user.id,categories : categories, errors: errors.errors});
+            }
         } else {
 
 
@@ -180,7 +192,10 @@ const {check, validationResult, body} = require('express-validator')
 
     
     actualizar: async (req, res) => {
-       let errors = validationResult(req);
+
+       const id = req.params.id; 
+        const product = db.Product.findByPk(id);
+        let errors = validationResult(req);
         if (!errors.isEmpty()){
 
             let user={};
@@ -194,7 +209,7 @@ const {check, validationResult, body} = require('express-validator')
             });
 
         } else {
-            
+            console.log('viendo que tiene: ', req.files[0] , + 'imagen de productos: ', product.image)
             await db.Product.update({
                 name: req.body.name,
                 price: req.body.price,

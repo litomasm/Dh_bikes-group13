@@ -41,24 +41,89 @@
         <br>
         
         <hr>
-            <h2>Productos que te pueden interesar</h2>
+            <h2>Ultimos productos agregados para niños</h2>
         <hr>
-        <section class="interesar">
-              
-            <article>
-                <a href="producto"><img src="/images/bici1.jpg" alt="bicicleta1" width="275px" height="250px"></a>
-            </article>
-            <article>
-                <a href="#"><img src="/images/bici2.jpg" alt="bicicleta2" width="275px" height="250px"></a>
-            </article>
-            <article>
-                <a href="#"><img src="/images/bici3.jpg" alt="bicicleta3" width="275px" height="250px"></a>
-            </article>
-            <article>
-                <a href="#"><img src="/images/bici4.jpg" alt="bicicleta4" width="275px" height="250px"></a>
-            </article>
+        <section class="seccion-productos-index">
+            <div class='caja-productos-index'>
+                <% for (product of products) { %>
+                    <% if( product.category_id ==  1) { %>
+                        <a href="/producto/detail/<%= product.id %>" class="enlace-producto-index">
+                            <div class="producto-index">
+                                <img id="image-allProduct" src="/images/products/<%= product.image %>" alt="<%= product.name %>"  >
+                            </div>
+                            <article class="index-products-data">
+                                <p class='index-products-name'><%= product.name %></p>
+                                <p class='index-products-price'>$ <%= product.price %></p>
+                            </article>
+                        </a>
+                    <% } %>
+                <% } %>
+            </div>
         </section>
-          
+        <hr>
+            <h2>Ultimos productos agregados para adultos</h2>
+        <hr>
+        <section class="seccion-productos-index">
+            <div class='caja-productos-index'>
+                <% for (product of products) { %>
+                    <% if( product.category_id ==  2) { %>
+                        <a href="/producto/detail/<%= product.id %>" class="enlace-producto-index">
+                            <div class="producto-index">
+                                <img id="image-allProduct" src="/images/products/<%= product.image %>" alt="<%= product.name %>"  >
+                            </div>
+                            <article class="index-products-data">
+                                <p class='index-products-name'><%= product.name %></p>
+                                <p class='index-products-price'>$ <%= product.price %></p>
+                               
+                            </article>
+                        </a>
+                    <% } %>
+                <% } %>
+            </div>
+        </section>
+        <hr>
+            <h2>Ultimos productos agregados para Deportistas</h2>
+        <hr>
+        <section class="seccion-productos-index">
+            <div class='caja-productos-index'>
+                <% for (product of products) { %>
+                    <% let x =0%>
+                    <% if( product.category_id == 3) { %>
+                        <a href="/producto/detail/<%= product.id %>" class="enlace-producto-index">
+                            <div class="producto-index">
+                                <img id="image-allProduct" src="/images/products/<%= product.image %>" alt="<%= product.name %>"  >
+                            </div>
+                            <article class="index-products-data">
+                                <p class='index-products-name'><%= product.name %></p>
+                                <p class='index-products-price'>$ <%= product.price %></p>
+                            </article>
+                        </a>
+                    <% } %>
+                <% } %>
+            </div>
+        </section>
+        <hr>
+            <h2>Ultimos productos agregados de accesorios</h2>
+        <hr>
+        <section class="seccion-productos-index">
+            <div class='caja-productos-index'>
+                <% for (product of products) { %>
+                    <% if( product.category_id ==  4) { %>
+                        <a href="/producto/detail/<%= product.id %>" class="enlace-producto-index">
+                            <div class="producto-index">
+                                <img id="image-allProduct" src="/images/products/<%= product.image %>" alt="<%= product.name %>"  >
+                            </div>
+                            <article class="index-products-data">
+                                <p class='index-products-name'><%= product.name %></p>
+                                <p class='index-products-price'>$ <%= product.price %></p>
+                               
+                            </article>
+                        </a>
+                    <% } %>
+                <% } %>
+            </div>
+        </section>
+       
         <hr>
             <h2>Nuestras Marcas</h2>
         <hr>

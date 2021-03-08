@@ -83,6 +83,9 @@ body{
 .motivoContacto{
   margin-left: 21px;
 }
+.stylePrimerItemContacto{
+  margin-top: 0;
+}
 
 .ayuda{
   margin-left: 21px;
@@ -117,8 +120,13 @@ ul li{
   background-color: #34495E ;
   padding: 20px;
   height: 100px;
-  
-    
+}
+
+.caja-form-seach{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   
 }
 
@@ -126,17 +134,28 @@ ul li{
   color:#34495E;
   width: 85%;
   padding-top: 5px;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  
-  
+  margin-right: 0;
 }
 
+/*Saca el efecto a los input y button al hacer click en el campo de los form*/
+input:focus, input#busqueda, button, textarea, select {
+
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+#buscador{
+  margin-left: 0;
+  background-color:#34495E;
+  cursor: pointer;  
+}
 .fa-search{
-  margin-left: 5px;
   color: #B7950B;
-  background-color: #34495E ;
-  padding: 4px;
+  padding: 0 5px;
+  top: 2px;
 }
 
 .menu a{
@@ -148,15 +167,20 @@ a{
   color: #B7950B;
 }
 
-#carrito{
-  
+#caja-carrito{
+  width:20%;
+}
+
+#boton-carrito{
+  width: 100%;
   background-color:#34495E;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   text-align: center;
   border: 2px solid #34495E;
   border-radius: 10px 10px 10px 10px;
-  width:20%;
+  text-decoration: none;
+  color: #B7950B;
 }
 
 .segundodiv{
@@ -238,14 +262,50 @@ hr{
   color: #B7950B;
 }
 
+section.eccion-productos-index{
+  width: 100%;
+}
+
+.caja-productos-index{
+  display: flex;
+  flex-flow: row wrap;
+  width:100%;  
+}
+
+.enlace-producto-index{
+  width:275px;
+}
+
+.producto-index{
+  width: 100%;
+}
+
+.index-products-data{
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  text-align: center;
+  justify-content: center;
+}
+
+.index-products-name{
+  color: black;
+  font-style: italic;
+  height: 38px;
+}
+.index-products-price{
+  font-size: 2.4em;
+  font-weight: 300;
+  margin: 0;
+}
+
+
 .tercerdiv{
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-
-
-
 }
 
 .menuMedia{
@@ -309,9 +369,18 @@ h3{
   flex-wrap: wrap;
   justify-content: center;
 }
-
-
-.formingreso{
+div.formingreso {
+  border-radius: 5px;
+  border: 1px solid #34495E;
+  background-color: #f2f2f2;
+  /* padding: 20px; */
+  margin: 25px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
+  width: 35%;
+}
+/* .formingreso{
   border: 1px solid #34495E;
   padding: 15px;
   margin: 50px;
@@ -320,7 +389,26 @@ h3{
   justify-content: right;
   width: 50%;
 }
-  
+   */
+
+input#email, input#password {
+  width: 100%;
+  padding: 5px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/*Este efecto afecta tanto al form de Reg., Edit, Log.*/
+
+input#email:hover, input#password:hover {
+  border-color:#B7950B ;
+}
+
+input#email:focus, input#password:focus {
+  border-color:#B7950B ;
+}
 
 #email{
   width: 100%;
@@ -335,6 +423,10 @@ h3{
   width: 100%;  
 }
 
+#primeritem{
+  margin-top: 15px;
+}
+
 .formlogin #primeritem{
   justify-content: left;
 }
@@ -343,50 +435,106 @@ h3{
   text-align: right;
 }
 
+p#recordar{
+  margin: 0 20px;
+}
 
 #botoniniciar{
- width: 50%;
- background-color: #34495E;
- border-radius: 10px 10px 10px 10px;
- padding: 10px;
- size: 20px;
+  /* width: 100%; */
+  /* background-color: #4CAF50; */
+  /* color: white; */
+  padding: 14px 20px;
+  margin: 8px auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50%;
+  background-color: #34495E;
+ /* border-radius: 10px 10px 10px 10px; */
+ /* padding: 10px; */
+ /* size: 20px; */
  color: #B7950B;
- margin: auto;
+ /* margin-top:10px; */
  display: block;
 }
 
-/* Cuerpo principal  */
+#botoniniciar:hover {
+  background-color:  rgba(204, 204, 204, 0.856);
+  color: #B7950B;
+  border: 1px solid #B7950B;
+}
+
+/* Cuerpo principal ALLPRODUCTS  */
 
 #producto {
+  width: 100%;
   display:flex;
   flex-wrap:wrap;
   flex-direction:row;
 }
+.fotoProductoBici{
+  width: 50%;
+  display: flex;
+  flex-flow: row wrap;
+ justify-content: center;
+ margin: 0;
+}
 .foto{
-  width:500px;
-  height:350px;
-  margin: 0px 20px;
-  display:flex;
-  flex-wrap:wrap;
-  flex-direction: row;
-  justify-content:center;
-  
+  width: 435px;
+  height: 435px;
+  margin: 0;
+  margin-left: 150px;
+}
+.img-foto-producto{
+  width: 435px;
+  height: 435px;
+  border: 1px solid rgba(204, 204, 204, 0.856);;
+}
 
+.caja-info-producto{
+  margin-left: 0;
+ width: 50%;
 }
 
 #productoInfo {
-  height:350px;
-  margin-left:10px;
+  max-width: 100%;
+  height:435px;
   display:block;
+  margin-left: 0;
 }
 #nombreProducto{
   font-size:34px;
   margin-left:0px;
+  text-align: left;
 }
 .precio{
   font-weight:bold;
-  font-size:20px;
+  font-size:30px;
+  color: #B7950B;
+  margin:15px 0;
 }
+
+.caja-categoria-producto-ejs{
+  width:100%;
+  text-align: justify;
+  margin:0;
+}
+
+.tituloCategoriaProducto{
+  display: inline;
+  text-align: left;
+}
+
+.ParrafoCategoriaProducto{
+  display: inline;
+}
+
+#cantidadDisponible{
+  position: relative;
+  left: 6px;
+  margin-bottom: 4px;
+}
+
 #botonAnadir{
   border: 2px solid #34495E;
   padding: 10px;
@@ -405,14 +553,34 @@ h3{
   
 }
 #descripcionProducto{
-  width:25%;
+  width:40%;
+}
+
+.caja-descripcion-producto-ejs{
+  width: 435px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-end;
+  margin-right: 0;
+  margin-top: 50px;
+
 }
 
 .infoAdicional{
-  width:25%;
+  width:50%;
   text-align: justify;
-  margin-left: 20px;
+  margin:0;
 }
+
+.caja-infoAdic-producto-ejs{
+  width: 600px ;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-end;
+  margin-top: 50px;
+  margin-left: 0;
+}
+
 .botonEditYDeleted{
   width:100%;
   display:flex;
@@ -498,10 +666,9 @@ h3{
 
 .product-box_data {
   padding: 15px;
-  position: relative;
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
+  text-align: center;
 }
 
 .product-box_data h2 {
@@ -538,29 +705,34 @@ h3{
   box-shadow: 0 0 5px var(--green);
 }
 
-/* REGISTRO */
+/* FORMULARIO REGISTRO DE USUARIO */
 
 .mainregistro{
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   justify-content: center;
+  align-items: center;
+}
+
+.formregistro{
+  border: 1px solid #34495E;
+  padding: 15px;
+  margin: 25px;
+  width: 50%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  /* padding: 20px; */
+
 }
 
 .formregister{
   width: 100%;
 }
 
-.formregistro{
-  border: 1px solid #34495E;
-  padding: 15px;
-  margin-top: 50px;
-  margin-bottom: 50px;;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 50%;
+
+#nombreregistro{
+  margin-top: 8px;
 }
-  
 
 #nombre{
   width: 100%;
@@ -588,18 +760,7 @@ h3{
 }
 
 #suscribir{
-  padding: 15px;
-}
-
-#botonregistro{
- width: 50%;
- background-color: #34495E;
- border-radius: 10px 10px 10px 10px;
- padding: 10px;
- size: 30px;
- color: #B7950B;
- margin: auto;
- display: block;
+  margin: 10px 0;
 }
 
 h4{
@@ -614,10 +775,66 @@ h4{
 }
 
 .estilo-boton-archivo{
-  width:100%;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+label[for="avatar"] {
+  font-size: 14px;
+  /* font-weight: 600; */
+  color: #000000;
+  background-color: #4f6d8b;
+  display: inline-block;
+  transition: all .5s;
+  cursor: pointer;
+  padding: 10px 25px !important;
+  /* text-transform: uppercase; */
+  width: fit-content;
+  text-align: center;
+  margin: 8px auto;
+  border: none;
+  border-radius: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+
+input#nombre,input#apellido,input#password3{
+  width: 100%;
+  padding: 5px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-/* CREAR PRODUCTO */
+input#nombre:hover, input#apellido:hover, input#password3:hover {
+  border-color:#B7950B ;
+}
+input#nombre:focus, input#apellido:focus, input#password3:focus {
+  border-color:#B7950B ;
+}
+
+button#botonregistro{
+  padding: 14px 20px;
+  margin: 8px auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50%;
+  background-color: #34495E;
+  color: #B7950B;
+  display: block;
+}
+
+#botonregistro:hover {
+  background-color:  rgba(204, 204, 204, 0.856);
+  color: #B7950B;
+  border: 1px solid #B7950B;
+}
+
+/* FORMULARIO CREAR PRODUCTO */
 
 .registroProduct{
   display: flex;
@@ -627,54 +844,201 @@ h4{
 
 .formRegistroProducto{
   width: 100%; 
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .formRegistroProducto2{
+  background-color: #f2f2f2;
   border: 1px solid #34495E;
+  border-radius: 5px;
   padding: 15px;
-  margin-top: 50px;
-  margin-bottom: 50px;;
+  margin: 25px;
+  width: 50%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
 }
-  
 
 .nombreDelProducto{
   width: 100%;
+}
+
+.caja-formulario-interior{
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.caja-nombre-producto{
+  width: 100%;
+}
+
+input#name,input#price{
+  width: 100%;
+  padding: 5px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.caja-contenedor-precio-categoria{
+  display: flex;
+  flex-flow: row wrap;
+  margin: 10px 0;
+  width: 100%;
   
+}
+.caja-precio-producto{
+  width: 50%;
+  margin: 0;
+}
+
+.caja-categoria-producto{
+  display: flex;
+  flex-flow:row wrap;
+  justify-content: center;
+  text-align: center;
+  width: 50%;
 }
 
 .precioDelProducto{
   width: 100%;
-  
 }
+
+select#category{
+  padding: 5px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0;
+  height: 27px;
+}
+#productImage{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  size: 500px;
+}
+label[for="productImage"] {
+  font-size: 14px;
+  color: #000000;
+  background-color: #4f6d8b;
+  display: inline-block;
+  transition: all .5s;
+  cursor: pointer;
+  padding: 10px 25px !important;
+  width: fit-content;
+  text-align: center;
+  margin: 8px auto;
+  border: none;
+  border-radius: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+
 
 .categoria{
   width: 100%;
-  
 }
 
 .fotoProducto{
   width: 100%;
-  
+  margin:10px 0
 }
 
 .productDescripcion{
   width: 100%;
-  
+  margin: 10px 0;
+}
+
+#description, #info{
+  width: 100%;
 }
 
 .botonguardarproducto{
- width: 50%;
- background-color: #34495E;
- border-radius: 10px 10px 10px 10px;
- padding: 10px;
- size: 30px;
- color: #B7950B;
- margin: auto;
- display: block;
+padding: 14px 20px;
+margin: 8px auto;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+width: 100%;
+background-color: #34495E;
+color: #B7950B;
+display: block;
+}
+
+input#name:hover, input#price:hover, select#category:hover{
+  border-color:#B7950B ;
+}
+
+textarea.form-input:hover{
+  border-color:#B7950B ;
+}
+
+input#name:focus, input#price:focus, select#category:focus, textarea.form-input:focus{
+  border-color:#B7950B ;
+}
+
+.botonguardarproducto:hover {
+  background-color:  rgba(204, 204, 204, 0.856);
+  color: #B7950B;
+  border: 1px solid #B7950B;
+}
+
+/*EDITAR PRODUCTO*/
+.caja-main-edit-producto{
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.caja-interior-form-edit{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.caja-div-errors-edit-product{
+  width: 100%;
+}
+
+/*PERFIL DE USUARIO*/
+.mainPerfil{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.tituloMiPerfil{
+  margin-bottom: 10px;
+}
+
+.cajaFotoProfile{
+  width: 500px;
+  height: 400px;
+}
+.fotoProfile{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+img[title="fotoDelUsuario"]{
+  width: 100%;
+  height: 100%;
+}
+.nombreYMailPerfil{
+  width: 30%;
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
 }
 
 
@@ -825,10 +1189,12 @@ h4{
       width:20%;
   }
   
-  .interesar{
+  .seccion-productos-index{
       justify-content: center;
       width: 100%;
   }
+
+
   .marcas{
       justify-content: center;
       width: 100%;
@@ -865,9 +1231,7 @@ h4{
     
   }
 
- 
-  
-  .product-box{
+ .product-box{
     width:100%;
   }
   .box-justiffy{
@@ -886,5 +1250,95 @@ h4{
     height: 40px;
     transition: 0ms;
     overflow: visible; 
+  }
+
+  /*FORMULARIO LOGIN*/
+  div.formingreso{
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  /*FORMULARIO CREATE PRODCUCT*/
+  .registroProduct{
+    width: 100%;
+  }
+  .caja-div-main{
+    width: 100%;
+  }
+  .formRegistroProducto2{
+    margin: 0;
+  }
+
+  div.caja-contenedor-formulario{
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+  }
+  
+  .caja-formulario-interior{
+    width: 100%;
+  }
+  
+  textarea#description,textarea#info{
+    width: 100%;
+  }
+
+  /*PRODUCT EDIT*/
+  caja-main-edit-producto{
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  .formRegistroProducto2{
+    margin: 0;
+    width: 100%;
+  }
+
+  /*FORMULARIO DE REGISTRO DE USUARIO*/
+  .mainregistro{
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .formregistro{
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  /*PERFIL DE USUARIO*/
+  .mainPerfil{
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cajaFotoProfile{
+    width: 100%;
+    display: flex;
+  }
+  .foto{
+    width: 100%;
+  }
+  img[title='fotoDelUsuario']{
+    width: 100%;
+    height: 100%;
+  }
+  .nombreYMailPerfil{
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+  }
+  .formregister{
+    text-align: center;
+  }
+  .action-button{
+    margin: 10px 0;
+    text-align: center;
+  }
+  .cajabotonEditYDeleted{
+    flex-flow: column wrap;
   }
 }
