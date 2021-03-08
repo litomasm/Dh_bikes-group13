@@ -209,7 +209,7 @@ const {check, validationResult, body} = require('express-validator')
             });
 
         } else {
-            console.log('viendo que tiene: ', req.files[0] , + 'imagen de productos: ', product.image)
+            
             await db.Product.update({
                 name: req.body.name,
                 price: req.body.price,

@@ -9,7 +9,7 @@ let ulErrores = document.querySelector("div.errores ul");
 
 form.addEventListener('submit', (e) => {
     
-    console.log('entre al form');
+    
     ulErrores.innerHTML = ""
     let errores = []; 
     
