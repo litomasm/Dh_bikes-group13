@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override'); 
 const session = require ("express-session");
+const cors = require("cors");
 
 const recordameMiddleware = require('./middleware/recordameMiddleware')
 
@@ -34,18 +35,20 @@ const productoRouter = require('./routes/productos');
 const userRouter = require('./routes/user');
 const carritoRouter = require('./routes/carrito');
 const contactoRouter = require("./routes/contacto");
-const apiRouter = require('./routes/apiRouter');
 const apiRouterUsers = require('./routes/apis/apiUsers');
+const apiRouterProducts = require('./routes/apis/apiProducts');
+const apiRouterCategories = require('./routes/apis/apiCategories');
 
 
-
+app.use (cors ());
 app.use('/', indexRouter);
 app.use('/producto', productoRouter);
 app.use('/user', userRouter);
-app.use('/api', apiRouter);
 app.use('/carrito', carritoRouter);
 app.use("/contacto", contactoRouter)
 app.use('/api/users', apiRouterUsers);
+app.use('/api/products', apiRouterProducts);
+app.use('/api/categories', apiRouterCategories);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

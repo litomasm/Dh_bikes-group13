@@ -33,10 +33,10 @@ const userController = {
     },
 
     store:  async (req, res) => {
-        console.log("1")
+        
         let errors = validationResult(req);
         if (!errors.isEmpty()){
-            console.log("2")
+            
             res.render('registro', {errors: errors.errors});
         } else {
         
@@ -50,14 +50,7 @@ const userController = {
             
         }).catch(error => console.log(error));
         
-            console.log({
-                name: req.body.name,
-                last_name: req.body.last_name,
-                email: req.body.email,
-                password: bcryptjs.hashSync(req.body.password, 5),
-                /* avatar: req.files[0].filename, */
-                avatar: req.files[0] ? req.files[0].filename : '',
-            })
+           
         res.render("login");
         }
     },
@@ -87,7 +80,7 @@ const userController = {
                 
                 
                 req.session.user = user.dataValues; 
-                console.log('session: ',req.session.user)
+                
                 
                 if (req.body.recordarme) {
                     res.cookie('email', user.email, { maxAge: 900000});
