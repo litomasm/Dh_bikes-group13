@@ -1022,8 +1022,8 @@ input#name:focus, input#price:focus, select#category:focus, textarea.form-input:
 }
 
 .cajaFotoProfile{
-  width: 500px;
-  height: 400px;
+  width: 300px;
+  height:300px;
 }
 .fotoProfile{
   width: 100%;
@@ -1223,13 +1223,7 @@ img[title="fotoDelUsuario"]{
     
   }
 
-  .descripcionParrafo{
-    width:100%;
-    
-    padding-left: 30px;
-    
-    
-  }
+  
 
  .product-box{
     width:100%;
@@ -1251,7 +1245,62 @@ img[title="fotoDelUsuario"]{
     transition: 0ms;
     overflow: visible; 
   }
+  /* DETALLES DEL PRODUCTO*/
+  .fotoProductoBici{
+    width:100%;
+  }
 
+  .foto-detalle-producto{
+    height: 450px;
+    margin: 0;
+  }
+
+  .img-foto-producto{
+    width:100%;
+  }
+
+  .caja-info-producto{
+    width: 100%;
+  }
+
+  #productoInfo{
+    text-align: center;
+    margin:0px;
+  }
+
+  #nombreProducto{
+    text-align: center;
+  }
+
+  .caja-categoria-producto-ejs{
+    text-align: center;
+  }
+
+  #cantidadDisponible{
+    position:initial;
+
+  }
+
+  #descripcionProducto{
+    width:100%;
+  }
+ .caja-descripcion-producto-ejs{
+   width:100%;
+   margin:0;
+ }
+
+ .descripcionParrafo{
+  width:100%;
+}
+
+.infoAdicional{
+  width: 100%;
+}
+
+.caja-infoAdic-producto-ejs{
+  width: 100%;
+  margin: 0;
+}
   /*FORMULARIO LOGIN*/
   div.formingreso{
     width: 100%;
