@@ -3,25 +3,7 @@ const db = require('../../../database/models');
 
 
 const apiProductsController = {
-	/*list: function(req, res){
-        db.Product.findAll({
-            include: ["category"]
-        })
-        .then(function(products){
-            for(let i = 0; i <products.length; i++){
-                products[i].setDataValue("endpoint", "/api/products/" + products[i].id)
-            }
-            let respuest = {
-                meta:{
-                    status: 200,
-                    total: products.length
-
-                },
-                data: products
-            };
-            res.json(respuest);
-        })
-        },*/
+	
         list: async (req, res) => {
             
             const Allproducts = await db.Product.findAndCountAll({
@@ -43,6 +25,9 @@ const apiProductsController = {
                     product
                 )
             });
+
+            const lastProduct = products[products.length - 1];
+            
         
             const ninos = products.filter((product)=>{
                 return product.category.id == 1;
@@ -81,6 +66,7 @@ const apiProductsController = {
                     count_Category_Deportes: deportes.length,
                     count_Category_Accesorios: accesorios.length,
                     totalAmount: totalAmount,
+                    lastProduct: lastProduct,
                     
                 }
                 
