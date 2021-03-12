@@ -21,3 +21,6 @@ Para este print, logramos implementar todo lo que aprendimos de Sequelizer y del
 SPRINT 7
 
 Ya en esta entrega se implemento las validaciones tanto el Front-End como en el Back-End haciendo un sitio web mas robusto en cuanto a seguridad
+
+SPRINT 8
+Ultimo sprint! habiando llegado bien al sprint anterior y no teniendo casi correcciones, nos pudimos dedicar de lleno a mejorar en aspectos visuales al sitio que veniamos trabajando, mientras que realizabamos las API's y trabajabamos con REACT.

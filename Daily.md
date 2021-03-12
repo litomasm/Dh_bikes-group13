@@ -33,3 +33,6 @@ Seguimos trabajando en equipo y ordenadamente manteniendo la comunicación fulid
 WEEKLY-SPRINT 7
 En esta ocasion la dinamica que utilizamos fue igual a los sprints anteriores. Hablamos y nos dividimos las correcciones y las tareas para este sprint. 
 Hicimos llamadas via zoom para poder trabajar y solucionar algunos problemas que estabamos encontrando en el código. De esta manera pudimos resolver todos los inconvenientes que nos fueron apareciendo. 
+
+WEEKLY-SPRINT 8
+Para este ultimo sprint pudimos aprovechar muchisimo el tiempo que tuvimos las ultimas clases en donde nos separaron en grupos para trabajar. A su vez, nos organizamos como siempre dividiendo tareas y aprovechando al maximo el tiempo para mejorar el sitio y completar todos los requerimientos de este ultimo sprint! Lo logramos!!
